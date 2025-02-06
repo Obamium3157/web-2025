@@ -1,0 +1,13 @@
+body {
+    font-family: 'Bitter';
+}
+header {
+    text-align: center;
+    font-size: larger;
+}
+.me {
+    width: 30%;
+}
+.text_about_myself {
+    font-size: 14pt;
+}
