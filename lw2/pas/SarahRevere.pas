@@ -17,5 +17,5 @@ BEGIN
     THEN
       WRITELN('The British are coming by sea')
     ELSE
-      WRITELN('Sarah didn''t say');  
+      WRITELN('Sarah didn''t say')
 END.

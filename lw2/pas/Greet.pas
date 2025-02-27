@@ -1,20 +1,38 @@
 PROGRAM Greet(INPUT, OUTPUT);
 VAR
-  Query: STRING;
-  Position: INTEGER;
+  GreetedPersonName: STRING;
 USES 
   DOS;
 
+FUNCTION GetQueryParameter(Key: STRING): STRING;
+VAR
+  Query, Temp: STRING;
 BEGIN
-  Query := GetEnv('QUERY_STRING');
-  Position := Pos('name', Query);
+  Query := GetEnv('QUERY_STRING'); 
+  Temp := Query;
+  IF Pos(Key, Query) = 0
+  THEN
+    Result := ''
+  ELSE
+    BEGIN
+       Delete(Temp, 0, Length(Key) + Pos(Key, Query) + 1);
+       IF Pos('&', Temp) = 0
+       THEN
+         Result := Copy(Temp, 1, Length(Temp))
+       ELSE
+         Result := Copy(Temp, 1, Pos('&', Temp) - 1)
+    END
+END;
+
+BEGIN
+  GreetedPersonName := GetQueryParameter('name');
   WRITELN('Content-Type: text/plain');
   WRITELN;
   WRITE('Hello dear, ');
   
-  IF Position <> 0
+  IF GreetedPersonName <> ''
   THEN
-    WRITE(Copy(Query, Position + 5, Length(Query) - Position))
+    WRITE(GreetedPersonName)
   ELSE
     WRITE('Anonimous');
   WRITELN('!')
