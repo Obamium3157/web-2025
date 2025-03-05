@@ -1,7 +1,7 @@
-#profile_image {
+.profile_image {
     width: 5%;
 }
 
 .post_image {
-    width: 30%;
+    width: 500 px;
 }

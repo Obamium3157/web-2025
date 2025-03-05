@@ -3,27 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Логинация</title>
-
         <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <h1>Войти</h1>
-        <img src="static/man.png" alt="" id="man">
+        <img src="static/login_image.png" alt="Заглавное изображение" class="man">
         
-        <h2>Электропочта</h2>
         <form action="/handler" method="post">
+            <h2>Электропочта</h2>
             <input type="email">
-        </form>
-        <h3>Введите Электропочту в формате *****@***.**</h3>
-
-        <h2>Пароль</h2>
-        <form action="/handler" method="post">
+            <h3>Введите Электропочту в формате *****@***.**</h3>
+    
+            <h2>Пароль</h2>
             <input type="password">
-            <img src="static/hide.png" alt="" id="pass_img">
-        </form>
-
-        <form action="/handler" method="post">
+            <img src="static/hide.png" alt="Спрятать пароль" class="pass_img">
             <input type="submit" value="Продолжить">
         </form>
     </body>
