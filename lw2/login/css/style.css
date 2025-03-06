@@ -1,7 +1,60 @@
-.man {
-    width: 30%;
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+.login_text {
+    font: 700 140px/180px "Golos Text";
+    letter-spacing: -1.5px;
+}
+
+.title_image {
+    width: 452px;
+    height: 501px;
+    top: 289px;
+    left: 269px;
 }
 
 .pass_img {
-    width: 2%;    
+    width: 24px;
+    height: 24px;
+}
+
+.field_title {
+    font: 400 15px/18px "Golos Text";
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.description {
+    font: 400 13px/16px "Golos Text";
+    letter-spacing: -0.08px;
+    color: #808080;
+}
+
+.input {
+    width: 343px;
+    height: 44px;
+    border-radius: 10px;
+    justify-content: space-between;
+
+    padding: 13px 12px 13px 12px;
+    border: none;
+
+    background-color: #F2F3F5;
+}
+
+.continue {
+    width: 343px;
+    height: 48px;
+    border-radius: 10px;
+
+    left: 16px;
+    right: 16px;
+
+    background-color: #222222;
+}
+
+.continue .continue_button_text {
+    font: 500 16px/100% "Golos Text";
+    letter-spacing: 0%;
+
+    color: #FFFFFF;
 }

@@ -7,18 +7,20 @@
     </head>
 
     <body>
-        <h1>Войти</h1>
-        <img src="static/login_image.png" alt="Заглавное изображение" class="man">
+        <h1 class="login_text">Войти</h1>
+        <img src="static/login_image.png" alt="Заглавное изображение" class="title_image">
         
         <form action="/handler" method="post">
-            <p>Электропочта</p>
-            <input type="email">
-            <p>Введите Электропочту в формате *****@***.**</p>
+            <p class="field_title">Электропочта</p>
+            <input class="input" type="email">
+            <p class="description">Введите Электропочту в формате *****@***.**</p>
     
-            <p>Пароль</p>
-            <input type="password">
-            <img src="static/hide.png" alt="Спрятать пароль" class="pass_img">
-            <input type="submit" value="Продолжить">
+            <p class="field_title">Пароль</p>
+            <input class="input" type="password">
+            <img src="../global_assets/Eye-off 24 black.svg" alt="Спрятать пароль" class="pass_img">
+            <button class="continue">
+                <span class="continue_button_text">Продолжить</span>
+            </button>
         </form>
     </body>
 </html>
