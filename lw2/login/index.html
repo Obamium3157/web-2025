@@ -7,10 +7,13 @@
     </head>
 
     <body>
-        <h1 class="login_text">Войти</h1>
-        <img src="static/login_image.png" alt="Заглавное изображение" class="title_image">
+        <div class="header">
+            <h1 class="login_text">Войти</h1>
+            <img src="static/login_image.png" alt="Заглавное изображение" class="title_image">
+        </div>
         
-        <form action="/handler" method="post">
+        
+        <div class="login">
             <p class="field_title">Электропочта</p>
             <input class="input" type="email">
             <p class="description">Введите Электропочту в формате *****@***.**</p>
@@ -21,6 +24,6 @@
             <button class="continue">
                 <span class="continue_button_text">Продолжить</span>
             </button>
-        </form>
+        </div>
     </body>
 </html>
