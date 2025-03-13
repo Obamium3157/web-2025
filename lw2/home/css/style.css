@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
 
+.navigation {
+    display: block;
+}
+
 .home_img {
     top: 40px;
 }
@@ -22,17 +26,44 @@
     width: 32px;
     height: 32px;
     border-radius: 6px;
+
+    margin-right: 10px;
+
+    vertical-align: sub;
+}
+
+.user-header {
+    display: inline-block;
+    align-items: center;
+    margin-top: 16px;
 }
 
 .account_name {
+    display: inline-block;
     font: 500 14px/18px "Golos Text";
     letter-spacing: -0.15px;
     vertical-align: middle;
+    height: 32px;
+    /* padding-top: 7px;
+    padding-bottom: 7px; */
 }
 
 .edit {
     width: 24px;
     height: 24px;
+
+    /* TODO: Удалить при сдаче!!! */
+    margin-left: 304px;
+}
+
+.post {
+    width: 474px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post_img_container {
+    margin-bottom: 16px;
 }
 
 .post_img_container .indicator {
@@ -79,6 +110,9 @@
 .post_content_text {
     font: 400 15px/18px "Golos Text";
     letter-spacing: -0.15px;
+
+    margin-top: 16px;
+    margin-bottom: 25px;
 }
 
 .date {
@@ -89,26 +123,34 @@
 }
 
 .reaction {
-    width: 68px;
+    width: fit-content;
     height: 30px;
     top: 554px;
     border-radius: 8px;
 
-    padding: 6px 12px 6px 12px;
-    gap: 3px;
+    /* padding: 6px 12px 6px 12px; */
+    margin-top: 16px;
 
     background-color: #2222220D;
 }
 
 
 .reaction .like_symbol {
+    /* display: inline-block;
     font: 400 16px/18px "Golos Text";
-    letter-spacing: -0.15px;
+    letter-spacing: -0.15px; */
+    width: 16px;
+    height: 18px;
     vertical-align: middle;
+
+    /* margin: 6px 3px 6px 12px; */
+    padding: 6px 3px 6px 12px;
 }
 
 .reaction .likes_counter {
     font: 400 15px/18px "Golos Text";
     letter-spacing: -0.15px;
     vertical-align: middle;
+
+    margin-right: 10px;
 }
