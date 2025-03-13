@@ -8,8 +8,6 @@
 .title_image {
     width: 452px;
     height: 501px;
-    top: 289px;
-    left: 269px;
 }
 
 .pass_img {
@@ -30,16 +28,23 @@
     color: #808080;
 }
 
+.field {
+    margin-bottom: 16px;
+}
+
 .input {
     display: block;
+    /* margin-bottom: 5px; */
+    margin-top: 5px;
     margin-bottom: 5px;
+    padding: 13px 12px;
 
     width: 343px;
     height: 44px;
     border-radius: 10px;
     justify-content: space-between;
 
-    padding: 13px 12px;
+    /* padding: 13px 12px; */
     
     font: 400 15px/18px "Golos Text";
     letter-spacing: -0.15px;
@@ -53,6 +58,7 @@
 
 .continue {
     display: block;
+    
     margin-top: 32px;
     padding: 14.5px;
 
@@ -65,6 +71,19 @@
     transition: border, background-color 0.3s ease;
 
     cursor: pointer;
+}
+
+.continue:focus {
+    border: 1px solid #3F8AE0;
+}
+
+.continue:disabled {
+    border: 2px solid #B4B4B4;
+    background-color: #B4B4B4;
+}
+
+.input-error {
+    border: 1px solid #E64646;
 }
 
 .continue .continue_button_text {
