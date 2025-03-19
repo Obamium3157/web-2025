@@ -8,27 +8,29 @@
     </head>
 
     <body>
-        <div class="header">
+        <main class="app">
             <h1 class="login_text">Войти</h1>
-            <img src="static/login_image.png" alt="Заглавное изображение" class="title_image">
-        </div>
-        
-        <div class="login">
-            <div class="field">
-                <label class="field_title" for="email">Электропочта</label>
-                <input id="email" class="input imput-error" type="email">
-                <span class="description">Введите Электропочту в формате *****@***.**</span>
+            <div class="header">
+                <img src="static/login_image.png" alt="Заглавное изображение" class="title_image">
             </div>
             
-            <div class="field">
-                <label class="field_title" for="password">Пароль</label>
-                <input id="password" class="input" type="password">
-                <!-- <img src="../global_assets/Eye-off_black.svg" alt="Спрятать пароль" class="pass_img"> -->
+            <div class="login">
+                <div class="field">
+                    <label class="field_title" for="email">Электропочта</label>
+                    <input id="email" class="input imput-error" type="email">
+                    <span class="description">Введите Электропочту в формате *****@***.**</span>
+                </div>
+                
+                <div class="field">
+                    <label class="field_title" for="password">Пароль</label>
+                    <input id="password" class="input" type="password">
+                    <!-- <img src="../global_assets/Eye-off_black.svg" alt="Спрятать пароль" class="pass_img"> -->
+                </div>
+                
+                <button class="continue">
+                    <span class="continue_button_text">Продолжить</span>
+                </button>
             </div>
-            
-            <button class="continue">
-                <span class="continue_button_text">Продолжить</span>
-            </button>
-        </div>
+        </main>
     </body>
 </html>
