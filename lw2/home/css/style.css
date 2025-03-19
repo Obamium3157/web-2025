@@ -1,12 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+.app {
+    display: flex;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    width: 5%;
+    padding-top: 3%;
+    justify-content: left;
+}
+
+.sidebar {
+    display: block;
+}
 
 .navigation {
     display: block;
+    width: 40px;
+    height: 40px; 
     margin-bottom: 16px;
 }
 
-.side {
-    border-radius: 10px;
+.content {
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_panel {
+    width: 100%;
+    height: 10vh;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 474px;
+    margin-bottom: 3%;
+}
+
+.post_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.user_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 16px; */
 }
 
 .profile_image {
@@ -19,17 +64,14 @@
     vertical-align: sub;
 }
 
-.user-header {
-    display: inline-block;
-    align-items: center;
-    margin-top: 16px;
-}
+
 
 .account_name {
-    display: inline-block;
-    font: 500 14px/18px "Golos Text";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 500 14px/18px "Golos UI";
     letter-spacing: -0.15px;
-    vertical-align: middle;
     height: 32px;
     /* padding-top: 7px;
     padding-bottom: 7px; */
@@ -40,14 +82,16 @@
     height: 24px;
 
     /* TODO: Удалить при сдаче!!! */
-    margin-left: 304px;
+    /* margin-left: 304px; */
 }
 
-.post {
-    width: 474px;
-    margin-left: auto;
-    margin-right: auto;
+
+.post_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
+
 
 .post_img_container {
     margin-bottom: 16px;
@@ -70,7 +114,7 @@
     width: 24px;
     height: 18px;
 
-    font: 400 15px/18px "Golos Text";
+    font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
 
     color: #FFFFFF;
@@ -85,13 +129,24 @@
     color: #FFFFFF99;
 } */
 
-.post_img_container .post_content_img {
+.post_content_img {
     width: 474px;
     height: 474px;
 }
 
+.reaction {
+    display: flex;
+    width: fit-content;
+    height: 30px;
+    border-radius: 8px;
+
+    /* padding: 6px 12px 6px 12px; */
+
+    background-color: #2222220D;
+}
+
 .post_content_text {
-    font: 400 15px/18px "Golos Text";
+    font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
 
     margin-top: 16px;
@@ -99,41 +154,27 @@
 }
 
 .date {
-    font: 400 14px/18px "Golos Text";
+    font: 400 14px/18px "Golos UI";
     letter-spacing: -0.15px;
 
     color: #22222280;
 }
 
-.reaction {
-    width: fit-content;
-    height: 30px;
-    top: 554px;
-    border-radius: 8px;
-
-    /* padding: 6px 12px 6px 12px; */
-    margin-top: 16px;
-
-    background-color: #2222220D;
-}
-
-
-.reaction .like_symbol {
-    /* display: inline-block;
-    font: 400 16px/18px "Golos Text";
-    letter-spacing: -0.15px; */
+.like_symbol {
+    display: flex;
+    align-items: center;
     width: 16px;
     height: 18px;
-    vertical-align: middle;
 
     /* margin: 6px 3px 6px 12px; */
     padding: 6px 3px 6px 12px;
 }
 
-.reaction .likes_counter {
-    font: 400 15px/18px "Golos Text";
+.likes_counter {
+    display: flex;
+    align-items: center;
+    font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
-    vertical-align: middle;
 
     margin-right: 10px;
 }
