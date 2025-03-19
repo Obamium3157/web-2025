@@ -21,13 +21,24 @@
     margin-bottom: 16px;
 }
 
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_panel {
+    height: 73px;
+}
+
 .profile_image {
-    display: block;
+    display: flex;
     width: 123px;
     height: 123px;
 
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
     margin-bottom: 20px;
 
     border-radius: 16px;
@@ -36,7 +47,7 @@
 }
 
 .profile_name {
-    display: block;
+    display: flex;
     width: 361px;
     height: 32px;
 
@@ -45,28 +56,31 @@
     size: 32px;
     text-align: center;
 
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
+
+    margin-top: 0px;
     margin-bottom: 10px;
 }
 
 .description {
-    display: block;
+    display: flex;
     width: 361px;
     height: 36px;
 
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
-    text-align: center;
 
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0px;
     margin-bottom: 12px;
 }
 
 .posts_counter {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
 
     width: fit-content;
     height: 30px;
@@ -83,26 +97,25 @@
     width: 16px;
     height: 16px;
     vertical-align: middle;
-    margin: 7px 1px 7px 10px;
+    margin: 7px 6px 7px 10px;
 }
 
 .counter_text {
-    display: inline-block;
-    /* width: 59px; */
     height: 18px;
 
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
 
-    vertical-align: middle;
     margin-right: 10px;
 }
 
 .posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     width: 990px;
-
-    margin-right: auto;
-    margin-left: auto;
+    gap: 2.48px;
 }
 
 .post_image {
