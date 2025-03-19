@@ -1,64 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
 
+.navigation {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
+}
+
 .profile_image {
+    display: block;
     width: 123px;
     height: 123px;
-    top: 97px;
-    left: 658.5px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
     border-radius: 16px;
 
     background-color: #FFFFFF;
 }
 
 .profile_name {
+    display: block;
     width: 361px;
     height: 32px;
-    top: 240px;
-    left: 549.5px;
 
     font: 500 32px/32px "Golos Text";
     letter-spacing: -0.25px;
     size: 32px;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .description {
+    display: block;
     width: 361px;
     height: 36px;
-    top: 282px;
-    left: 539.5px;
 
     font: 400 15px/18px "Golos Text";
     letter-spacing: -0.15px;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
 }
 
 .posts_counter {
-    width: 101px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: fit-content;
     height: 30px;
-    top: 330px;
-    left: 669.5px;
     border-radius: 6px;
 
-    padding: 6px 10px 6px 10px;
-    gap: 6px;
+    /* padding: 6px 10px 6px 10px; */
+    align-items: center;
+    margin-bottom: 42px;
+    
+    background-color: #F2F3F5;
 }
 
-.posts_counter .image {
+.image {
     width: 16px;
     height: 16px;
+    vertical-align: middle;
+    margin: 7px 1px 7px 10px;
 }
 
-.posts_counter .counter_text {
-    width: 59px;
+.counter_text {
+    display: inline-block;
+    /* width: 59px; */
     height: 18px;
 
     font: 400 15px/18px "Golos Text";
     letter-spacing: -0.15px;
+
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 .posts {
-    top: 402px;
-    left: 234px;
-    gap: 2.48px;
+    width: 990px;
+
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .post_image {
