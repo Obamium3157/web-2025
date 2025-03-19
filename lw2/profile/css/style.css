@@ -1,3 +1,19 @@
+.app {
+    display: flex;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    width: 5%;
+    padding-top: 3%;
+    justify-content: left;
+}
+
+.sidebar {
+    display: block; 
+}
+
 .navigation {
     display: block;
     width: 40px;

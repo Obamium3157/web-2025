@@ -5,8 +5,8 @@
 
 .menu {
     display: flex;
-    width: 5%;
-    padding-top: 3%;
+    width: 72px;
+    padding-top: 40px;
     justify-content: left;
 }
 
@@ -23,7 +23,7 @@
 
 .content {
     display: flex;
-    width: 95%;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -31,27 +31,27 @@
 
 .top_panel {
     width: 100%;
-    height: 10vh;
+    height: 73px;
 }
 
 .post {
     display: flex;
     flex-direction: column;
     width: 474px;
-    margin-bottom: 3%;
+    margin-bottom: 20px;
 }
 
 .post_header {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 
 .user_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-top: 16px; */
 }
 
 .profile_image {
@@ -60,8 +60,6 @@
     border-radius: 6px;
 
     margin-right: 10px;
-
-    vertical-align: sub;
 }
 
 
@@ -80,9 +78,6 @@
 .edit {
     width: 24px;
     height: 24px;
-
-    /* TODO: Удалить при сдаче!!! */
-    /* margin-left: 304px; */
 }
 
 
@@ -97,7 +92,7 @@
     margin-bottom: 16px;
 }
 
-.post_img_container .indicator {
+/* .post_img_container .indicator {
     width: 44px;
     height: 24px;
     top: 20px;
@@ -108,7 +103,7 @@
     padding-left: 10px;
 
     background-color: #22222280;
-}
+} */
 
 /* .post_img_container .indicator .indicator_text {
     width: 24px;
@@ -140,7 +135,7 @@
     height: 30px;
     border-radius: 8px;
 
-    /* padding: 6px 12px 6px 12px; */
+    margin-bottom: 16px;
 
     background-color: #2222220D;
 }
@@ -149,13 +144,15 @@
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
 
-    margin-top: 16px;
+    margin-top: 0px;
     margin-bottom: 25px;
 }
 
 .date {
     font: 400 14px/18px "Golos UI";
     letter-spacing: -0.15px;
+
+    margin-top: 0px;
 
     color: #22222280;
 }
