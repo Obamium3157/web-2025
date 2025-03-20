@@ -6,7 +6,7 @@
 .menu {
     display: flex;
     width: 5%;
-    padding-top: 3%;
+    padding-top: 40px;
     justify-content: left;
 }
 
