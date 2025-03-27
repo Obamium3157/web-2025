@@ -57,8 +57,12 @@ body {
     color: #808080;
 }
 
-.field {
+.field_email {
     margin-bottom: 16px;
+}
+
+.field_password {
+    margin-bottom: 32px;
 }
 
 .input {
@@ -85,7 +89,6 @@ body {
 .continue {
     display: block;
     
-    margin-top: 32px;
     padding: 14.5px;
 
     width: 343px;
