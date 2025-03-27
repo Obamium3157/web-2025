@@ -1,3 +1,7 @@
+body {
+    margin: 0px;
+}
+
 .app {
     display: flex;
     width: 100%;
@@ -5,13 +9,14 @@
 
 .menu {
     display: flex;
-    width: 5%;
+    width: 72px;
+    border-right: 1px solid #2222220D;
     padding-top: 40px;
-    justify-content: left;
 }
 
 .sidebar {
-    display: block; 
+    display: block;
+    padding: 0px 16px 0px 16px; 
 }
 
 .navigation {
@@ -53,6 +58,7 @@
 
     font: 500 32px/32px "Golos UI";
     letter-spacing: -0.25px;
+    color: #222222;
     size: 32px;
     text-align: center;
 
@@ -69,6 +75,7 @@
 
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
+    color: #222222;
 
     text-align: center;
     justify-content: center;
@@ -86,7 +93,6 @@
     height: 30px;
     border-radius: 6px;
 
-    /* padding: 6px 10px 6px 10px; */
     align-items: center;
     margin-bottom: 42px;
     
@@ -105,6 +111,7 @@
 
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
+    color: #222222;
 
     margin-right: 10px;
 }

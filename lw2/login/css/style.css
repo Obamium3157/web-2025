@@ -1,3 +1,7 @@
+body {
+    margin: 0px;
+}
+
 .app {
     display: flex;
     justify-content: center;
@@ -6,7 +10,15 @@
 }
 
 .header {
+    display: flex;
+    flex-direction: column;
     margin-right: 107px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 343px;
 }
 
 .login_text {
@@ -17,6 +29,7 @@
 
     font: 700 140px/180px "Golos UI";
     letter-spacing: -1.5px;
+    color: #222222;
 }
 
 .title_image {
@@ -33,6 +46,8 @@
     display: block;
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
+
+    margin-bottom: 5px;
     color: #222222;
 }
 
@@ -48,20 +63,17 @@
 
 .input {
     display: block;
-    /* margin-bottom: 5px; */
-    margin-top: 5px;
+
     margin-bottom: 5px;
     padding: 13px 12px;
 
-    width: 343px;
-    height: 44px;
+    width: 319px;
+    height: 18px;
     border-radius: 10px;
-    justify-content: space-between;
 
-    /* padding: 13px 12px; */
-    
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
+    color: #222222;
 
     transition: 0.3s ease;
     outline: none;
