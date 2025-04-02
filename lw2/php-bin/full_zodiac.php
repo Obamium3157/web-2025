@@ -27,7 +27,7 @@
         }
     }
 
-    function parseDate(string $dateStr): array {
+    function ParseDate(string $dateStr): array {
         $formats = [
             // ДД.ММ.ГГГГ
             '/^(\d{2})\.(\d{2})\.(\d{4})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
@@ -57,7 +57,6 @@
                 $month = (int)$matches[$groups['month']];
                 $year = (int)$matches[$groups['year']];
                 
-                // Для двухзначного года преобразуем в четырехзначный (предполагаем 20xx)
                 if ($year < 100) {
                     $year += 2000;
                 }
@@ -67,7 +66,7 @@
         }
     }
 
-    $input = parseDate($_POST["date"]);
+    $input = ParseDate($_POST["date"]);
     $date = "{$input['day']}{$input['month']}"; 
     echo GetZodiacSign($date);
 ?>

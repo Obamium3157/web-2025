@@ -7,6 +7,10 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <?php
+            $data = file_get_contents("../data/user.json", true);
+            $arr = json_decode($data, true);
+        ?>
         <main class="app">
             <div class="menu">
                 <div class="sidebar">
@@ -21,7 +25,11 @@
             </div>
 
             <section class="content">
-                <div class="top_panel"></div>
+                <?php
+                    require 'profile.php';
+                    renderProfile($arr[0]);
+                ?>
+                <!-- <div class="top_panel"></div>
                 <img src="static/man.png" alt="Аватар пользователя" class="profile_image">
                 <h2 class="profile_name">Ваня Денисов</h2>
                 <p class="description">
@@ -44,7 +52,7 @@
                     <img src="static/man.png" alt="Картинка в посте" class="post_image">
                     <img src="static/man.png" alt="Картинка в посте" class="post_image">
                     <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                </div>
+                </div> -->
             </section>
         </main>
     </body>

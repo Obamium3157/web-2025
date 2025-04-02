@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Петр",
+        "surname": "Жданов",
+        "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
+        "posts_counter": 15
+    },
+    {
+        "id": 2,
+        "name": "daigaku gaikoku",
+        "surname": "kokujin",
+        "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
+        "posts_counter": 4
+    },
+    {
+        "id": 3,
+        "name": "Anatolij",
+        "surname": "Kovyralo",
+        "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
+        "posts_counter": 80
+    }
+]
