@@ -1,3 +1,8 @@
+<?php
+    require_once 'profile.php';
+    require_once '../data/validate.php';
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -10,6 +15,14 @@
         <?php
             $data = file_get_contents("../data/user.json", true);
             $arr = json_decode($data, true);
+            $user_id = validateProfile($arr, (isset($_GET['id']) && is_numeric($_GET['id'])) ? $_GET['id'] : -1);
+            
+            if ($user_id == -1) {
+                header("Location: ../home/", true);
+                exit;
+            }
+            
+            
         ?>
         <main class="app">
             <div class="menu">
@@ -26,8 +39,13 @@
 
             <section class="content">
                 <?php
-                    require 'profile.php';
-                    renderProfile($arr[0]);
+                    
+                    foreach ($arr as $user) {
+                        if ($user['id'] == $user_id) {
+                            renderProfile($user);
+                            $flag = true;
+                        }
+                    }
                 ?>
                 <!-- <div class="top_panel"></div>
                 <img src="static/man.png" alt="Аватар пользователя" class="profile_image">

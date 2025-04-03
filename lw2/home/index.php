@@ -17,7 +17,7 @@
                     <a href="../home/">
                         <img class="navigation home_img" src="../global_assets/Home_dot_black.svg" alt="Домашняя страница">
                     </a>
-                    <a href="../profile/">
+                    <a href="../profile?id=1">
                         <img class="navigation profile_img" src="../global_assets/Icon_black.svg" alt="Профиль">
                     </a>
                     <img class="navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
