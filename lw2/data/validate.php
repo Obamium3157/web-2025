@@ -19,7 +19,6 @@
         return true;
     }
 
-
     function validatePostTextLength(string $data) : bool {
         return strlen($data) <= 512;
     }
