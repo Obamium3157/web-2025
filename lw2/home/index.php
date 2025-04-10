@@ -1,3 +1,8 @@
+<?php
+    require_once 'post.php';
+    require '../data/validate.php';
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -8,8 +13,10 @@
     </head>
     <body>
         <?php
-            $data = file_get_contents("../data/post.json", true);
-            $arr = json_decode($data, true);
+            $post_file = file_get_contents("../data/post.json", true);
+            $user_file = file_get_contents("../data/user.json", true);
+            $posts = json_decode($post_file, true);
+            $users = json_decode($user_file, true);
         ?>
         <main class="app">
             <div class="menu">
@@ -17,7 +24,7 @@
                     <a href="../home/">
                         <img class="navigation home_img" src="../global_assets/Home_dot_black.svg" alt="Домашняя страница">
                     </a>
-                    <a href="../profile?id=1">
+                    <a href="../profile?user_id=1">
                         <img class="navigation profile_img" src="../global_assets/Icon_black.svg" alt="Профиль">
                     </a>
                     <img class="navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
@@ -27,9 +34,12 @@
             <section class="content">
                 <div class="top_panel"> </div>
                 <?php 
-                    require_once 'post.php';
-                    foreach ($arr as $post) {
-                        renderPost($post);
+                    foreach ($posts as $post) {
+                        $user_key = array_search($post['user_id'], array_column($users, 'user_id'));
+                        $user = $users[$user_key];
+                        if (validatePost($post)) {
+                            renderPost($post, $user);
+                        }
                     }  
                 ?>
             </section>

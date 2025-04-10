@@ -1,12 +1,16 @@
 <?php
 
-function renderPost(array $data) {
+function renderPost(array $data, array $user) {
     ?>
         <div class="post">
             <div class="post_header">
                 <div class="user_header">
                     <img src="static/man.png" alt="Аватар пользователя" class="profile_image">
-                    <span class="account_name"><?php echo $data['name'] . ' ' . $data['surname'] ?></span>
+                    <span class="account_name">
+                        <a class="account_name" href=<?php echo '"../profile?user_id=' .  $user['user_id'] . '"'?>>
+                            <?php echo $user['name'] . ' ' . $user['surname'] ?>
+                        </a>
+                    </span>
                 </div>
                 <?php
                     if (($data['id'] == 1)):
@@ -35,7 +39,7 @@ function renderPost(array $data) {
                     <span class="likes_counter"><?php echo $data['likes_counter'] ?></span>
                 </div>
                 <p class="post_content_text">
-                    <?php echo $data['text'] ?>
+                    <?php echo $data['text']; ?>
                 </p>
                 <p class="date">Пост отправлен <?php echo $data['time'] ?></p>
             </div>

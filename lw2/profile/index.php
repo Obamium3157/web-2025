@@ -1,6 +1,6 @@
 <?php
     require_once 'profile.php';
-    require_once '../data/validate.php';
+    require '../data/validate.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +13,25 @@
     </head>
     <body>
         <?php
-            $data = file_get_contents("../data/user.json", true);
-            $arr = json_decode($data, true);
-            $user_id = validateProfile($arr, (isset($_GET['id']) && is_numeric($_GET['id'])) ? $_GET['id'] : -1);
-            
-            if ($user_id == -1) {
+            $user_file = file_get_contents("../data/user.json", true);
+            $users = json_decode($user_file, true);
+
+            $flag = false;
+            if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
+                $temp = validateProfile($users, $_GET['user_id']);
+                if ($temp !== false) {
+                    $user = $temp;
+                } else {
+                    $flag = true;
+                }
+            } else {
+                $flag = true;
+            }
+
+            if ($flag) {
                 header("Location: ../home/", true);
                 exit;
             }
-            
-            
         ?>
         <main class="app">
             <div class="menu">
@@ -39,38 +48,8 @@
 
             <section class="content">
                 <?php
-                    
-                    foreach ($arr as $user) {
-                        if ($user['id'] == $user_id) {
-                            renderProfile($user);
-                            $flag = true;
-                        }
-                    }
+                    renderProfile($user);
                 ?>
-                <!-- <div class="top_panel"></div>
-                <img src="static/man.png" alt="Аватар пользователя" class="profile_image">
-                <h2 class="profile_name">Ваня Денисов</h2>
-                <p class="description">
-                    Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!
-                </p>
-                <div class="posts_counter">
-                    <img class="image" src="../global_assets/Image.svg" alt="Число постов">
-                    <span class="counter_text">11 постов</span>
-                </div>
-        
-                <div class="posts">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                    <img src="static/man.png" alt="Картинка в посте" class="post_image">
-                </div> -->
             </section>
         </main>
     </body>

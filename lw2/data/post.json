@@ -1,26 +1,23 @@
 [
     {
         "id": 1,
-        "name": "Ваня",
-        "surname": "Денисов",
-        "time": "2025-10-12T23:24:35.000Z",
+        "user_id": 1,
+        "time": "2025-11-12T23:24:35.000Z",
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
         "id": 2,
-        "name": "daigaku gaikoku",
-        "surname": "kokujin",
+        "user_id": 2,
         "time": "2025-11-12T23:24:35.000Z",
-        "text": "夜の12時にやるんだ、気が狂いそうだよ。",
+        "text": "asmnvasbkvsdkavasdklvbsdajkbvaskdlbvsjkadlsasjlkdbsnvasjkvcsnaslkdjaslkdalksdakjsdjaajlkdsfdasjkkfnkasjdlfnkldsjfnsjlkdfnsjlkdanfasjlkdfnsdjlkfnasdjlkfasjlkdfnasjlkdnfasjlkdfnasjlkdgnsjlkdaghskdjlvslkabdjlksbslknabvasjlkbvaskdjvbks",
         "likes_counter": 0
     },
     {
         "id": 3,
-        "name": "Anatolij",
-        "surname": "Kovyralo",
-        "time": "2025-12-12T23:22:35.000Z",
-        "text": "Lorem ipsum dolor sit amet",
+        "user_id": 3,
+        "time": "2025-11-12T23:24:35.000Z",
+        "text": "5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555",
         "likes_counter": 123
     }
 ]
