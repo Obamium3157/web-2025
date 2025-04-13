@@ -1,11 +1,11 @@
 <?php
 
-function renderPost(array $data, array $user) {
+function renderPost(array $post, array $user) {
     ?>
         <div class="post">
             <div class="post_header">
                 <div class="user_header">
-                    <img src="static/man.png" alt="Аватар пользователя" class="profile_image">
+                    <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/' . $user['profile_picture'] . '"' ?> alt="Аватар пользователя" class="profile_image">
                     <span class="account_name">
                         <a class="account_name" href=<?php echo '"../profile?user_id=' .  $user['user_id'] . '"'?>>
                             <?php echo $user['name'] . ' ' . $user['surname'] ?>
@@ -13,7 +13,7 @@ function renderPost(array $data, array $user) {
                     </span>
                 </div>
                 <?php
-                    if (($data['id'] == 1)):
+                    if (($post['id'] == 1)):
                 ?>
                     <img src="../global_assets/Edit_gray.svg" alt="Отредактировать пост" class="edit">
                 <?php
@@ -31,17 +31,17 @@ function renderPost(array $data, array $user) {
                     <button class="slider button_right">
                         <img src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
                     </button> -->
-                    <img src="static/post_image.png" alt="Картинка в посте" class="post_content_img">
+                    <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/posts/' . $post['picture'] . '"' ?> alt="Картинка в посте" class="post_content_img">
                 </div>
             
                 <div class="reaction">
                     <img class="like_symbol" src="../global_assets/like.svg" alt="❤">
-                    <span class="likes_counter"><?php echo $data['likes_counter'] ?></span>
+                    <span class="likes_counter"><?php echo $post['likes_counter'] ?></span>
                 </div>
                 <p class="post_content_text">
-                    <?php echo $data['text']; ?>
+                    <?php echo $post['text']; ?>
                 </p>
-                <p class="date">Пост отправлен <?php echo $data['time'] ?></p>
+                <p class="date">Пост отправлен <?php echo $post['time'] ?></p>
             </div>
         </div>
     <?php

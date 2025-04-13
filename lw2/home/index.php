@@ -32,11 +32,12 @@
             </div>
             
             <section class="content">
-                <div class="top_panel"> </div>
+                <!-- <div class="top_panel"> </div> -->
                 <?php 
                     foreach ($posts as $post) {
                         $user_key = array_search($post['user_id'], array_column($users, 'user_id'));
                         $user = $users[$user_key];
+
                         if (validatePost($post)) {
                             renderPost($post, $user);
                         }

@@ -14,7 +14,10 @@
     <body>
         <?php
             $user_file = file_get_contents("../data/user.json", true);
+            $posts_file = file_get_contents("../data/post.json", true);
+
             $users = json_decode($user_file, true);
+            $posts = json_decode($posts_file, true);
 
             $flag = false;
             if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
@@ -48,7 +51,10 @@
 
             <section class="content">
                 <?php
-                    renderProfile($user);
+                    $user_posts = array_filter($posts, function($post) use ($user) {
+                        return isset($post['user_id']) && $post['user_id'] == $user['user_id'];
+                    });
+                    renderProfile($user, $user_posts);
                 ?>
             </section>
         </main>

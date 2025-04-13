@@ -1,0 +1,1 @@
+INSERT INTO post(user_id, text, likes_counter) VALUES (1, 'Hello, world!', 13);

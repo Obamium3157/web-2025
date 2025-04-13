@@ -29,6 +29,7 @@
                 
                 <button class="continue">
                     <span class="continue_button_text">Продолжить</span>
+                    <!-- Продолжить -->
                 </button>
             </div>
         </main>
