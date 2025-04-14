@@ -27,7 +27,7 @@ function renderProfile(array $user, array $posts) {
 <?php
 function renderPostImage(array $post) {
 ?>
-    <img src=<?php echo '"../data/users_data/' . $post['user_id'] . '/posts/' . $post['picture'] . '"' ?> alt="Картинка в посте" class="post_image">
+    <img src=<?php echo '"../data/users_data/' . $post['user_id'] . '/posts/' . $post['images'][0] . '"' ?> alt="Картинка в посте" class="post_image">
 <?php
 }
 ?>

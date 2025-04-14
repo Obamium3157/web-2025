@@ -31,7 +31,7 @@ function renderPost(array $post, array $user) {
                     <button class="slider button_right">
                         <img src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
                     </button> -->
-                    <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/posts/' . $post['picture'] . '"' ?> alt="Картинка в посте" class="post_content_img">
+                    <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/posts/' . $post['images'][0] . '"' ?> alt="Картинка в посте" class="post_content_img">
                 </div>
             
                 <div class="reaction">
@@ -41,7 +41,7 @@ function renderPost(array $post, array $user) {
                 <p class="post_content_text">
                     <?php echo $post['text']; ?>
                 </p>
-                <p class="date">Пост отправлен <?php echo $post['time'] ?></p>
+                <p class="date"> <?php echo date("h:m:s d.m.y", $post['time']) ?> </p>
             </div>
         </div>
     <?php

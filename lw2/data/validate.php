@@ -3,9 +3,7 @@
         if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
             foreach ($users as $user) {
                 foreach ($user as $field) {
-                    if (is_string($field)) {
-                        if (!validateStringLength(strval($field))) return false;
-                    }
+                    if (!validateStringLength(strval($field))) return false;
                 }
                 if(in_array($user_id, $user)) {
                     return $user;
@@ -17,9 +15,11 @@
     }
 
     function validatePost(array $post) : bool {
-        if (!strtotime($post['time'])) return false;
+        // if (!strtotime($post['time'])) return false;
         foreach ($post as $field) {
-            if (!validatePostTextLength(strval($field))) return false;
+            if (is_string($field)) {
+                if (!validatePostTextLength(strval($field))) return false;
+            }
         }
         return true;
     }
