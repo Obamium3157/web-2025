@@ -1,12 +1,17 @@
 <?php
-    function validateProfile(array $users, int $user_id): array | bool {
-        foreach ($users as $user) {
-            foreach ($user as $field) {
-                if (!validateStringLength(strval($field))) return false;
+    function validateProfile(array $users, string $user_id): array | bool {
+        if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
+            foreach ($users as $user) {
+                foreach ($user as $field) {
+                    if (is_string($field)) {
+                        if (!validateStringLength(strval($field))) return false;
+                    }
+                }
+                if(in_array($user_id, $user)) {
+                    return $user;
+                }
             }
-            if(in_array($user_id, $user)) {
-                return $user;
-            }
+            return false;
         }
         return false;
     }

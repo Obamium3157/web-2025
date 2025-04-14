@@ -19,20 +19,11 @@
             $users = json_decode($user_file, true);
             $posts = json_decode($posts_file, true);
 
-            $flag = false;
-            if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
-                $temp = validateProfile($users, $_GET['user_id']);
-                if ($temp !== false) {
-                    $user = $temp;
-                } else {
-                    $flag = true;
-                }
+            $temp = validateProfile($users, $_GET['user_id']);
+            if ($temp !== false) {
+                $user = $temp;
             } else {
-                $flag = true;
-            }
-
-            if ($flag) {
-                header("Location: ../home/", true);
+                header('Location: ../home', true);
                 exit;
             }
         ?>

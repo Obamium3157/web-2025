@@ -20,7 +20,6 @@ function renderProfile(array $user, array $posts) {
             }
         ?>
     </div>
-    
     <?php
 }
 ?>
