@@ -19,7 +19,7 @@
             $users = json_decode($user_file, true);
             $posts = json_decode($posts_file, true);
 
-            $temp = validateProfile($users, $_GET['user_id']);
+            $temp = validateProfile($users);
             if ($temp !== false) {
                 $user = $temp;
             } else {

@@ -1,5 +1,4 @@
 <?php
-
 function renderPost(array $post, array $user) {
     ?>
         <div class="post">
@@ -13,7 +12,7 @@ function renderPost(array $post, array $user) {
                     </span>
                 </div>
                 <?php
-                    if (($post['id'] == 1)):
+                    if (($post['id'] == 4)):
                 ?>
                     <img src="../global_assets/Edit_gray.svg" alt="Отредактировать пост" class="edit">
                 <?php
