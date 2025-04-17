@@ -1,6 +1,11 @@
 <?php
-    require_once 'post.php';
+    require 'post.php';
     require '../data/validate.php';
+    require '../data/sql/include/database.php';
+
+    $connection = connectToDB();
+    $posts = getPostsFromDB($connection, 100);
+    $users = getUsersFromDB($connection, 10);
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +18,10 @@
     </head>
     <body>
         <?php
-            $post_file = file_get_contents("../data/post.json", true);
-            $user_file = file_get_contents("../data/user.json", true);
-            $posts = json_decode($post_file, true);
-            $users = json_decode($user_file, true);
+            // $post_file = file_get_contents("../data/post.json", true);
+            // $user_file = file_get_contents("../data/user.json", true);
+            // $posts = json_decode($post_file, true);
+            // $users = json_decode($user_file, true);
         ?>
         <main class="app">
             <div class="menu">

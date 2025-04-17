@@ -1,6 +1,11 @@
 <?php
     require_once 'profile.php';
     require '../data/validate.php';
+    require '../data/sql/include/database.php';
+
+    $connection = connectToDB();
+    $posts = getPostsFromDB($connection, 100);
+    $users = getUsersFromDB($connection, 10);
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +18,14 @@
     </head>
     <body>
         <?php
-            $user_file = file_get_contents("../data/user.json", true);
-            $posts_file = file_get_contents("../data/post.json", true);
+            // $user_file = file_get_contents("../data/user.json", true);
+            // $posts_file = file_get_contents("../data/post.json", true);
 
-            $users = json_decode($user_file, true);
-            $posts = json_decode($posts_file, true);
+            // $users = json_decode($user_file, true);
+            // $posts = json_decode($posts_file, true);
 
-            $temp = validateProfile($users);
-            if ($temp !== false) {
-                $user = $temp;
-            } else {
+            $user = validateProfile($users);
+            if (!$user) {
                 header('Location: ../home', true);
                 exit;
             }
@@ -33,8 +36,8 @@
                     <a href="../home/">
                         <img class="navigation" src="../global_assets/Home_black.svg" alt="Домашняя страница">
                     </a>
-                    <a href="../profile/">
-                        <img class="navigation" src="../global_assets/Icon_dot_black.svg" alt="Профиль">
+                    <a href="../profile?user_id=1">
+                        <img class="navigation profile_img" src="../global_assets/Icon_dot_black.svg" alt="Профиль">
                     </a>
                     <img class="navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
                 </div>

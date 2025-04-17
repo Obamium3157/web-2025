@@ -3,7 +3,7 @@ function renderProfile(array $user, array $posts) {
     ?>
     <!-- <div class="top_panel"></div> -->
     <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/' . $user['profile_picture'] . '"' ?> alt="Аватар пользователя" class="profile_image">
-    <h2 class="profile_name"><?php echo $user['name'] . ' ' . $user['surname'] ?></h2>
+    <h2 class="profile_name"><?php echo $user['first_name'] . ' ' . $user['last_name'] ?></h2>
     <p class="description">
         <?php echo $user['description'] ?>
     </p>
@@ -27,7 +27,7 @@ function renderProfile(array $user, array $posts) {
 <?php
 function renderPostImage(array $post) {
 ?>
-    <img src=<?php echo '"../data/users_data/' . $post['user_id'] . '/posts/' . $post['images'][0] . '"' ?> alt="Картинка в посте" class="post_image">
+    <img src=<?php echo '"../data/users_data/' . $post['user_id'] . '/posts/' . $post['image'] . '"' ?> alt="Картинка в посте" class="post_image">
 <?php
 }
 ?>
