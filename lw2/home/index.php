@@ -38,7 +38,9 @@
                     <?php
                     endif;
                     ?>
-                    <img class="navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
+                    <a href="../create_post/">
+                        <img class="navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
+                    </a>
                 </div>
             </div>
             

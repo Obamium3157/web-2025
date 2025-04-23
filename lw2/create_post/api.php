@@ -12,14 +12,22 @@ if($_SERVER['REQUEST_METHOD'] !== METHOD_POST) {
     exit;
 }
 
-$act = isset($_GET['act']) ?? null;
+// var_dump(file_get_contents('php://input'));
+$input = json_decode(file_get_contents('php://input'), true);
 
-switch($act) {
-    case ACT_UPLOADER:
-        echo uploadData();
-        break;
-    default:
-        echo getResponse(STATUS_ERROR, MESSAGE_INVALID_ACT);
-        exit;
+if (isset($input)) {
+    echo uploadData($input);
 }
+
+// $act = isset($_GET['act']) ?? null;
+
+// switch($act) {
+//     case ACT_UPLOADER:
+//         echo uploadData($input);
+//         break;
+//     default:
+//         echo getResponse(STATUS_ERROR, MESSAGE_INVALID_ACT);
+//         exit;
+// }
+// header('Location: ../home/', true);
 ?>

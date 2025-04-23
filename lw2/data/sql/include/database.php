@@ -70,18 +70,18 @@ function getUserFromDB(PDO $connection, int $user_id) : ?array {
     return $row ?: null;
 }
 
-function savePostToDB(PDO $connection, int $user_id, string $text): bool {
-  // function savePostToDatabase(PDO $connection, array $params) {
+function savePostToDB(PDO $connection, int $user_id, string $image, string $text): bool {
       $query = <<<SQL
           INSERT INTO
-            post (user_id, text)
+            post (user_id, image, text)
           VALUES
-            (:user_id, :text)
+            (:user_id, :image, :text)
       SQL;
       
       $statement = $connection->prepare($query);
       return $statement->execute([
           ':user_id' => $user_id,
+          ':image' => $image,
           ':text' => $text,
       ]);
   }
