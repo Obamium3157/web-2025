@@ -80,8 +80,8 @@ INSERT INTO
         description
     )
 VALUES (
-        'peter.png',
-        'Ваня',
+    'peter.png',
+    'Ваня',
         'Денисов',
         'some_random_email@email.moc',
         '12356789',

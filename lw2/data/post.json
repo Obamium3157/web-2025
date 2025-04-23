@@ -1,105 +1,105 @@
 [
     {
-        "id": 1,
+        "post_id": 1,
         "user_id": 1,
         "time": 1744657427,
-        "images": ["elgato.png"],
+        "image": ["elgato.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 2,
+        "post_id": 2,
         "user_id": 2,
         "time": 1744657427,
-        "images": ["meme.png"],
+        "image": ["meme.png"],
         "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur quibusdam consequuntur atque quia cumque voluptas obcaecati minima eveniet. Suscipit, magnam? Ipsam veniam fuga deleniti voluptatem! Animi dolorem quas repellat nostrum!",
         "likes_counter": 0
     },
     {
-        "id": 3,
+        "post_id": 3,
         "user_id": 3,
         "time": 1744657427,
-        "images": ["truth.png"],
+        "image": ["truth.png"],
         "text": "helo! I'm the most average person possible :P",
         "likes_counter": 123
     },
     {
-        "id": 4,
+        "post_id": 4,
         "user_id": 1,
         "time": 1744657427,
-        "images": ["peter.png"],
+        "image": ["peter.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 5,
+        "post_id": 5,
         "user_id": 1,
         "time": 1744657427,
-        "images": ["peter.png"],
+        "image": ["peter.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 6,
+        "post_id": 6,
         "user_id": 1,
         "time": 1744657427,
-        "images": ["peter.png"],
+        "image": ["peter.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 7,
+        "post_id": 7,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["1.png"],
+        "image": ["1.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 8,
+        "post_id": 8,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["2.png"],
+        "image": ["2.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 9,
+        "post_id": 9,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["3.png"],
+        "image": ["3.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 10,
+        "post_id": 10,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["4.png"],
+        "image": ["4.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 11,
+        "post_id": 11,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["5.png"],
+        "image": ["5.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 12,
+        "post_id": 12,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["6.png"],
+        "image": ["6.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     },
     {
-        "id": 13,
+        "post_id": 13,
         "user_id": 4,
         "time": 1744657427,
-        "images": ["7.png"],
+        "image": ["7.png"],
         "text": "Hello, world!",
         "likes_counter": 328
     }

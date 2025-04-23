@@ -31,13 +31,13 @@ function uploadData() : string {
 
     $isSuccess = move_uploaded_file($image['tmp_name'], 'images/' . $filename);
     if (!$isSuccess) {
-        echo getResponse(STATUS_ERROR, MESAGE_INVALID_SAVE_IMAGE);
+        return getResponse(STATUS_ERROR, MESAGE_INVALID_SAVE_IMAGE);
     }
 
     $connection = connectToDatabase();
     $isSuccess =  savePostToDatabase($connection, $title, $filename);    
     if (!$isSuccess) {
-        echo getResponse(STATUS_ERROR, MESAGE_INVALID_SAVE_DB_IMAGE);
+        return getResponse(STATUS_ERROR, MESAGE_INVALID_SAVE_DB_IMAGE);
     }
 
     return getResponse(STATUS_OK, '');

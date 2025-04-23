@@ -3,10 +3,10 @@
         if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
             $user_id = $_GET['user_id'];
             foreach ($users as $user) {
-                foreach ($user as $field) {
-                    if (!validateStringLength(strval($field))) return false;
-                }
                 if(in_array($user_id, $user)) {
+                    foreach ($user as $field) {
+                        if (!validateStringLength(strval($field))) return false;
+                    }
                     return $user;
                 }
             }

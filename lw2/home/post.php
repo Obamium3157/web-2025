@@ -38,15 +38,16 @@ function renderPost(array $post, array $user) {
                     endif;
                     ?> 
                 </div>
-            
-                <p class="post_content_text">
-                    <?php echo $post['text']; ?>
-                </p>
+                
                 <div class="reaction">
                     <img class="like_symbol" src="../global_assets/like.svg" alt="❤">
                     <span class="likes_counter"><?php echo $post['likes_counter'] ?></span>
                 </div>
-                <p class="date"> <?php echo $post['time'] //echo date("h:m:s d.m.y", $post['time']) ?> </p>
+                <p class="post_content_text">
+                    <?php echo $post['text']; ?>
+                </p>
+
+                <p class="date"> <?php echo date('h:m:s d.m.y', strtotime($post['time']))?> </p>
             </div>
         </div>
     <?php

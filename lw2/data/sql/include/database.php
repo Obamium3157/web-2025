@@ -13,7 +13,7 @@ function connectToDB() : PDO {
 function getPostsFromDB(PDO $connection, int $limit = 100) : array {
   $query = <<<SQL
       SELECT
-      post_id, user_id, image, time, text, likes_counter
+        post_id, user_id, image, time, text, likes_counter
       FROM
         post
       LIMIT {$limit}

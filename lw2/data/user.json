@@ -2,8 +2,8 @@
     {
         "user_id": 1,
         "profile_picture": "peter.png",
-        "name": "Ваня",
-        "surname": "Денисов",
+        "first_name": "Ваня",
+        "last_name": "Денисов",
         "email": "some_random_email@email.moc",
         "password": "1235",
         "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!"
@@ -11,8 +11,8 @@
     {
         "user_id": 2,
         "profile_picture": "man.png",
-        "name": "Денис",
-        "surname": "Иванов",
+        "first_name": "Денис",
+        "last_name": "Иванов",
         "email": "some_random_email@email.moc",
         "password": "1235",
         "description": "Привет!! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!"
@@ -20,8 +20,8 @@
     {
         "user_id": 3,
         "profile_picture": "ava.png",
-        "name": "Денислав",
-        "surname": "Иваненко",
+        "first_name": "Денислав",
+        "last_name": "Иваненко",
         "email": "some_random_email@email.moc",
         "password": "1235",
         "description": "Привет!!! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!"
@@ -29,8 +29,8 @@
     {
         "user_id": 4,
         "profile_picture": "ava.png",
-        "name": "Пётр",
-        "surname": "Жданов",
+        "first_name": "Пётр",
+        "last_name": "Жданов",
         "email": "anatolijkovyralo@gmail.com",
         "password": "12356",
         "description": "lorem ipsum"
