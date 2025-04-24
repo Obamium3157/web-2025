@@ -1,5 +1,11 @@
 <?php
 
+header('Content-Type: application/json');
+
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+error_reporting(E_ALL);
+
 const STATUS_ERROR = 'error';
 const STATUS_OK = 'ok';
 
@@ -13,51 +19,53 @@ const MESSAGE_BASE64_DECODE_FAILED = 'base64 decode failed';
 
 const ACT_UPLOADER = 'uploader';
 
-function uploadData(array $input) : string {
-    $connection = connectToDB();
-
-    $user_id = isset($input['user_id']) ? (int) trim($input['user_id']) : null;
-    if (!$user_id) {
-        return getResponse(STATUS_ERROR, MESSAGE_INVALID_FIELD);
+function uploadData() : string {
+    if (empty($_POST['user_id'])) {
+        return getResponse(STATUS_ERROR, 'invalid user id');
     }
 
+    $user_id = (int) trim($_POST['user_id']);
     if (!validateId($user_id)) {
-        return getResponse(STATUS_ERROR, MESSAGE_INVALID_FIELD);
+        return getResponse(STATUS_ERROR, 'cannot validate user id');
     }
 
+    $connection = connectToDB();
     $user = getUserFromDB($connection, $user_id);
 
-    $image = isset($input['image']) ? $input['image'] : null;
+    $image = $_FILES && ($_FILES['images']['error'] === UPLOAD_ERR_OK || $_FILES['images']['error'] == null) ? $_FILES['image'] : null;
 
-    if (strpos($image, 'base64,') !== false) {
-        $image = explode('base64,', $image)[1];
+    if (!$image) {
+        return getResponse(STATUS_ERROR, 'invalid image file');
     }
-    $imageData = base64_decode($image);
-    if ($imageData === false) {
-        return getResponse(STATUS_ERROR, MESSAGE_BASE64_DECODE_FAILED);
+    
+    if (!validateImage($image['type'], $image['size'])) {
+        return getResponse(STATUS_ERROR, 'cannot validate image');
     }
 
     $image_filename = generateImageName($user['first_name'], $user['last_name']);
 
-    $isSuccess = file_put_contents('../data/users_data/' . $user_id .'/posts/' . $image_filename, $imageData);
+    $isSuccess = move_uploaded_file($image['tmp_name'], '../data/users_data/' . $user_id . '/posts/' . $image_filename);
 
     if (!$isSuccess) {
         return getResponse(STATUS_ERROR, MESAGE_INVALID_SAVE_DB_IMAGE);
     }
 
-    $text = isset($input['text']) ? trim($input['text']) : null;
-    if (!$text) {
-        return getResponse(STATUS_ERROR, MESSAGE_INVALID_FIELD);
+    if (empty($_POST['text'])) {
+        return getResponse(STATUS_ERROR, 'invalid text');
     }
+
+    $text = trim($_POST['text']);
+
     if (!validateText($text)) {
-        return getResponse(STATUS_ERROR, MESSAGE_INVALID_FIELD);
+        return getResponse(STATUS_ERROR, 'cannot validate text');
     }   
+
     $isSuccess = savePostToDB($connection, $user_id, $image_filename, $text);
     if (!$isSuccess) {
         return getResponse(STATUS_ERROR, MESSAGE_CANNOT_SAVE_POST_TO_DB);
     }
 
-    return getResponse(STATUS_OK, '');
+    return getResponse(STATUS_OK, 'Post created successfully');
 }
 
 function getResponse(string $status, string $message) : string {

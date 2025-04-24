@@ -134,7 +134,9 @@ body {
 
 .post_content_img {
     width: 474px;
-    height: 474px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
 
 .reaction {
