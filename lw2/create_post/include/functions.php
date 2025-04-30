@@ -2,7 +2,7 @@
 
 const IMAGE_FORMAT = '.png';
 const IMAGE_TYPE = 'image/png';
-const IMAGE_SIZE = 1024 * 1024;
+const IMAGE_SIZE = 2048 * 2048;
 const IMAGE_MAX_LENGTH = 255;
 const IMAGE_MAX_RANDOM = 15;
 

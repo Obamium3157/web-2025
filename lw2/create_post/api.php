@@ -12,18 +12,11 @@ if($_SERVER['REQUEST_METHOD'] !== METHOD_POST) {
     exit;
 }
 
-// var_dump(file_get_contents('php://input'));
-$input = json_decode(file_get_contents('php://input'), true);
-
-if (isset($input)) {
-    echo uploadData($input);
-}
-
 $act = isset($_GET['act']) ?? null;
 
 switch($act) {
     case ACT_UPLOADER:
-        echo uploadData($input);
+        echo uploadData();
         break;
     default:
         echo getResponse(STATUS_ERROR, MESSAGE_INVALID_ACT);

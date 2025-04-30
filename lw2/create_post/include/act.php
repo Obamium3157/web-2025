@@ -20,19 +20,25 @@ const MESSAGE_BASE64_DECODE_FAILED = 'base64 decode failed';
 const ACT_UPLOADER = 'uploader';
 
 function uploadData() : string {
-    if (empty($_POST['user_id'])) {
-        return getResponse(STATUS_ERROR, 'invalid user id');
-    }
+    // if (empty($_POST['user_id'])) {
+    //     return getResponse(STATUS_ERROR, 'invalid user id');
+    // }
 
-    $user_id = (int) trim($_POST['user_id']);
-    if (!validateId($user_id)) {
-        return getResponse(STATUS_ERROR, 'cannot validate user id');
-    }
+    // $user_id = (int) trim($_POST['user_id']);
+    // if (!validateId($user_id)) {
+    //     return getResponse(STATUS_ERROR, 'cannot validate user id');
+    // }
+    $user_id = 4;
 
     $connection = connectToDB();
     $user = getUserFromDB($connection, $user_id);
 
-    $image = $_FILES && ($_FILES['images']['error'] === UPLOAD_ERR_OK || $_FILES['images']['error'] == null) ? $_FILES['image'] : null;
+    if (isset($_FILES['image'])) {
+        $temp = 'image';
+    } else {
+        $temp = 'images';
+    }
+    $image = $_FILES && ($_FILES[$temp]['error'] === UPLOAD_ERR_OK || $_FILES[$temp]['error'] == null) ? $_FILES[$temp] : null;
 
     if (!$image) {
         return getResponse(STATUS_ERROR, 'invalid image file');

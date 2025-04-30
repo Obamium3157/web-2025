@@ -1,0 +1,165 @@
+body {
+    margin: 0px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.header {
+    display: flex;
+    /* justify-content: flex-start; */
+
+    margin-bottom: 32px;
+
+    align-items: center;
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #2222220D;
+}
+
+.return {
+    /* display: flex; */
+    /* justify-self: self-start; */
+    /* justify-self: start; */
+    width: 36px;
+    height: 36px;
+
+    margin-top: 10px;
+    margin-bottom: 4px;
+    margin-left: 12px;
+    margin-right: auto;
+
+    border: none;
+    background-color: #FFFFFF;
+    /* display: none; */
+}
+
+.return:hover {
+    cursor: pointer;
+}
+
+.return img {
+    width: 24px;
+    height: 24px;
+}
+
+.header_text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font: 700 20px/20px "Golos UI";
+    letter-spacing: -0.15px;
+}
+
+#create_post_form {
+    display: flex;
+    flex-direction: column;
+    width: 474px;
+    align-self: center;
+    /* align-items: center; */
+}
+
+.add_image {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 474px;
+    height: 474px;
+
+    margin-bottom: 20px;
+
+    background-color: #F2F3F5;
+}
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inner_img {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.add_image_btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 143px;
+    height: 48px;
+    border-radius: 10px;
+    /* padding: 14.5px 16px; */
+    background-color: #222222;
+    text-align: center;
+
+    font-family: "Golos UI";
+    font-weight: 500px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#imageInput {
+    display: none;
+}
+
+.add_photo {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: none;
+
+    margin-bottom: 16px;
+
+    font: 400 15px/18px "Golos UI";
+    letter-spacing: -0.15px;
+    color: #3F8AE0;
+}
+
+.add_photo_img {
+    width: 16px;
+    height: 16px;
+}
+
+.input_post_text {
+    border: none;
+
+    font: 400 15px/18px "Golos UI";
+    letter-spacing: -0.15px;
+    color: #808080;
+}
+
+.input_post_text:hover {
+    text-decoration: underline;
+    cursor: default;
+}
+
+.input_post_text.return:hover {
+    text-decoration: none;
+}
+
+.submit_btn {
+    position: fixed;
+    bottom: 32px;
+
+    width: 140px;
+    height: 48px;
+
+    font-family: "Golos UI";
+    font-weight: 400px;
+    font-size: 16px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 10px;
+    background-color: #B4B4B4;
+}
