@@ -6,9 +6,8 @@ const users = [
 ];
 
 function get_obj_values(users) {
-    const names = [];
-    users.map(function(obj) {
-        if (obj['name'] != undefined) names.push(obj["name"])
+    const names = users.map(function(obj) {
+        if (obj["name"]) obj["name"];
     });
 
     return names;

@@ -1,7 +1,7 @@
 function uniqueElements(arr) {
     const result = {};
     for (const el of arr) {
-        if (result.hasOwnProperty(el)) {
+        if (result[el]) {
             result[el]++;
         } else {
             result[el] = 1;

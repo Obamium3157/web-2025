@@ -6,7 +6,7 @@ function isPrimeNumber(x) {
 
         return true;
     }
-    else if (typeof(x) == 'object') {
+    else if (x instanceof Array) {
         let res = [];
         x.forEach(el => {
             let flag = false;
@@ -49,7 +49,7 @@ function parseResult(x, res) {
 }
 
 
-parseResult(3, isPrimeNumber(3));
+parseResult({}, isPrimeNumber({}));
 parseResult(4, isPrimeNumber(4));
 console.log('-------------');
 parseResult([2, 3, 4, 5], isPrimeNumber([2, 3, 4, 5]));

@@ -5,7 +5,7 @@ function mergeObjects(obj1, obj2) {
     // }
 
     // return result;
-    return { ...obj1, ...obj2 }
+    return { ... obj1, ... obj2 }
 }
 
 console.log(mergeObjects({name: 'Peter', age: 28}, {favourite_game: 'Cruelty Squad', age: 18, busy: true}));
