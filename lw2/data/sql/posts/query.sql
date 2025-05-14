@@ -111,3 +111,15 @@ VALUES (
         '12356',
         'lorem ipsum'
 );
+
+INSERT INTO
+    image (
+        post_id,
+        filename,
+        idx
+    )
+VALUES (
+    '1',
+    'peter.png',
+    '1'
+);

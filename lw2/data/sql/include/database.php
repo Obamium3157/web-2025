@@ -70,6 +70,19 @@ function getUserFromDB(PDO $connection, int $user_id) : ?array {
     return $row ?: null;
 }
 
+function getImagesFromDB(PDO $connection, int $limit = 100) : array {
+  $query = <<<SQL
+        SELECT
+          image_id, post_id, filename, idx
+        FROM
+          image
+        LIMIT {$limit}    
+  SQL;
+
+  $statement = $connection->query($query);
+  return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function savePostToDB(PDO $connection, int $user_id, string $image, string $text): bool {
       $query = <<<SQL
           INSERT INTO

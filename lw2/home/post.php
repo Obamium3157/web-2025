@@ -1,5 +1,5 @@
 <?php
-function renderPost(array $post, array $user) {
+function renderPost(array $post, array $user, array $images) {
     ?>
         <div class="post">
             <div class="post_header">
@@ -30,13 +30,15 @@ function renderPost(array $post, array $user) {
                     <button class="slider button_right">
                         <img src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
                     </button> -->
+
                     <?php
-                    if ($post['image'] !== null):
+                        foreach($images as $image) {
                     ?>
-                        <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/posts/' . $post['image'] . '"' ?> alt="Картинка в посте" class="post_content_img">
+                            <img src="../data/users_data/<?php echo $user['user_id']?>/posts/<?php echo $image['filename'] ?>" alt="Картинка в посте" class="post_content_img">
                     <?php
-                    endif;
-                    ?> 
+                        }
+                    ?>
+                    
                 </div>
                 
                 <div class="reaction">
