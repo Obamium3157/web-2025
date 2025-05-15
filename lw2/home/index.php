@@ -1,12 +1,5 @@
 <?php
-    require 'post.php';
-    require '../data/validate.php';
-    require '../data/sql/include/database.php';
-
-    $connection = connectToDB();
-    $posts = getPostsFromDB($connection, 100);
-    $users = getUsersFromDB($connection, 10);
-    $images = getImagesFromDB($connection, 100);
+    require 'connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,21 +41,7 @@
             <section class="content">
                 <!-- <div class="top_panel"> </div> -->
                 <?php 
-                    foreach ($posts as $post) {
-                        $user_key = array_search($post['user_id'], array_column($users, 'user_id'));
-                        $user = $users[$user_key];
-
-                        $current_images = [];
-                        foreach ($images as $image) {
-                            if ($image['post_id'] == $post['post_id']) {
-                                array_push($current_images, $image);
-                            }
-                        }
-
-                        if (validatePost($post)) {
-                            renderPost($post, $user, $current_images);
-                        }
-                    }  
+                    include 'post_renderer.php';
                 ?>
             </section>
         </main> 
