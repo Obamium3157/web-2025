@@ -66,7 +66,7 @@ function uploadData() : string {
         return getResponse(STATUS_ERROR, 'cannot validate text');
     }   
 
-    $isSuccess = savePostToDB($connection, $user_id, $image_filename, $text);
+    $isSuccess = savePostToDB($connection, $user_id, [$image_filename], $text);
     if (!$isSuccess) {
         return getResponse(STATUS_ERROR, MESSAGE_CANNOT_SAVE_POST_TO_DB);
     }

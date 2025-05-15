@@ -83,21 +83,65 @@ function getImagesFromDB(PDO $connection, int $limit = 100) : array {
   return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function savePostToDB(PDO $connection, int $user_id, string $image, string $text): bool {
-      $query = <<<SQL
-          INSERT INTO
-            post (user_id, image, text)
-          VALUES
-            (:user_id, :image, :text)
-      SQL;
+// function savePostToDB(PDO $connection, int $user_id, string $image, string $text): bool {
+//       $query = <<<SQL
+//           INSERT INTO
+//             post (user_id, text)
+//           VALUES
+//             (:user_id, :text)
+//       SQL;
       
-      $statement = $connection->prepare($query);
-      return $statement->execute([
-          ':user_id' => $user_id,
-          ':image' => $image,
-          ':text' => $text,
-      ]);
-  }
+//       $statement = $connection->prepare($query);
+//       return $statement->execute([
+//           ':user_id' => $user_id,
+//           ':image' => $image,
+//           ':text' => $text,
+//       ]);
+// }
+
+function savePostToDB(PDO $connection, int $user_id, array $images, string $text): bool {
+    $connection->beginTransaction();
+    
+    try {
+        $query = <<<SQL
+            INSERT INTO
+              post (user_id, text)
+            VALUES
+              (:user_id, :text)
+        SQL;
+        
+        $statement = $connection->prepare($query);
+        $statement->execute([
+            ':user_id' => $user_id,
+            ':text' => $text,
+        ]);
+        
+        $post_id = $connection->lastInsertId();
+        
+        $imageQuery = <<<SQL
+            INSERT INTO
+              image (post_id, filename, idx)
+            VALUES
+              (:post_id, :filename, :idx)
+        SQL;
+        
+        $imageStatement = $connection->prepare($imageQuery);
+        
+        foreach ($images as $index => $image) {
+            $imageStatement->execute([
+                ':post_id' => $post_id,
+                ':filename' => $image,
+                ':idx' => $index,
+            ]);
+        }
+        
+        $connection->commit();
+        return true;
+    } catch (Exception $e) {
+        $connection->rollBack();
+        return false;
+    }
+}
 
 ?>
 
