@@ -14,6 +14,6 @@ foreach ($posts as $post) {
     if (validatePost($post)) {
         renderPost($post, $user, $current_images);
     }
-}  
+}
 
 ?>

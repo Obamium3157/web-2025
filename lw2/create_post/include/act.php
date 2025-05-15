@@ -19,7 +19,8 @@ const MESSAGE_BASE64_DECODE_FAILED = 'base64 decode failed';
 
 const ACT_UPLOADER = 'uploader';
 
-function uploadData() : string {
+function uploadData(): string
+{
     // if (empty($_POST['user_id'])) {
     //     return getResponse(STATUS_ERROR, 'invalid user id');
     // }
@@ -43,7 +44,7 @@ function uploadData() : string {
     if (!$image) {
         return getResponse(STATUS_ERROR, 'invalid image file');
     }
-    
+
     if (!validateImage($image['type'], $image['size'])) {
         return getResponse(STATUS_ERROR, 'cannot validate image');
     }
@@ -64,7 +65,7 @@ function uploadData() : string {
 
     if (!validateText($text)) {
         return getResponse(STATUS_ERROR, 'cannot validate text');
-    }   
+    }
 
     $isSuccess = savePostToDB($connection, $user_id, [$image_filename], $text);
     if (!$isSuccess) {
@@ -74,13 +75,14 @@ function uploadData() : string {
     return getResponse(STATUS_OK, 'Post created successfully');
 }
 
-function getResponse(string $status, string $message) : string {
+function getResponse(string $status, string $message): string
+{
     $response = [
         'status' => $status,
-        'message'=> $message,
+        'message' => $message,
     ];
 
-    return (string)json_encode($response); // if returntype = false, return empty string
+    return (string) json_encode($response); // if returntype = false, return empty string
 }
 
 ?>

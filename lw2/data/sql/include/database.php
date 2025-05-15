@@ -5,27 +5,30 @@ const DB_NAME = 'blog';
 const DB_USER = 'root'; // Создать своего юзера для этой бд
 const DB_PASSWORD = ''; // Добавить пароль
 
-function connectToDB() : PDO {
-    $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
-    return new PDO($dsn, DB_USER, DB_PASSWORD);
+function connectToDB(): PDO
+{
+  $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
+  return new PDO($dsn, DB_USER, DB_PASSWORD);
 }
 
-function getPostsFromDB(PDO $connection, int $limit = 100) : array {
+function getPostsFromDB(PDO $connection, int $limit = 100): array
+{
   $query = <<<SQL
       SELECT
         post_id, user_id, time, text, likes_counter
       FROM
         post
       LIMIT {$limit}
-  SQL;    
+  SQL;
 
   $statement = $connection->query($query);
 
   return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getPostFromDB(PDO $connection, int $post_id) : ?array {
-    $query = <<<SQL
+function getPostFromDB(PDO $connection, int $post_id): ?array
+{
+  $query = <<<SQL
         SELECT
           post_id, user_id, time, text, likes_counter
         FROM
@@ -34,27 +37,29 @@ function getPostFromDB(PDO $connection, int $post_id) : ?array {
           post_id = $post_id  
     SQL;
 
-    $statement = $connection->query($query);
-    $row = $statement->fetch(PDO::FETCH_ASSOC);
+  $statement = $connection->query($query);
+  $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-    return $row ?: null;
+  return $row ?: null;
 }
 
-function getUsersFromDB(PDO $connection, int $limit = 100) : array {
+function getUsersFromDB(PDO $connection, int $limit = 100): array
+{
   $query = <<<SQL
       SELECT
         user_id, profile_picture, first_name, last_name, email, password, description
       FROM
         user
       LIMIT {$limit}
-  SQL;    
+  SQL;
 
   $statement = $connection->query($query);
 
   return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getUserFromDB(PDO $connection, int $user_id) : ?array {
+function getUserFromDB(PDO $connection, int $user_id): ?array
+{
   $query = <<<SQL
         SELECT
           user_id, profile_picture, first_name, last_name, email, password, description
@@ -64,13 +69,14 @@ function getUserFromDB(PDO $connection, int $user_id) : ?array {
           user_id = $user_id  
     SQL;
 
-    $statement = $connection->query($query);
-    $row = $statement->fetch(PDO::FETCH_ASSOC);
+  $statement = $connection->query($query);
+  $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-    return $row ?: null;
+  return $row ?: null;
 }
 
-function getImagesFromDB(PDO $connection, int $limit = 100) : array {
+function getImagesFromDB(PDO $connection, int $limit = 100): array
+{
   $query = <<<SQL
         SELECT
           image_id, post_id, filename, idx
@@ -83,49 +89,49 @@ function getImagesFromDB(PDO $connection, int $limit = 100) : array {
   return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function savePostToDB(PDO $connection, int $user_id, array $images, string $text): bool {
-    $connection->beginTransaction();
-    
-    try {
-        $query = <<<SQL
+function savePostToDB(PDO $connection, int $user_id, array $images, string $text): bool
+{
+  $connection->beginTransaction();
+
+  try {
+    $query = <<<SQL
             INSERT INTO
               post (user_id, text)
             VALUES
               (:user_id, :text)
         SQL;
-        
-        $statement = $connection->prepare($query);
-        $statement->execute([
-            ':user_id' => $user_id,
-            ':text' => $text,
-        ]);
-        
-        $post_id = $connection->lastInsertId();
-        
-        $imageQuery = <<<SQL
+
+    $statement = $connection->prepare($query);
+    $statement->execute([
+      ':user_id' => $user_id,
+      ':text' => $text,
+    ]);
+
+    $post_id = $connection->lastInsertId();
+
+    $imageQuery = <<<SQL
             INSERT INTO
               image (post_id, filename, idx)
             VALUES
               (:post_id, :filename, :idx)
         SQL;
-        
-        $imageStatement = $connection->prepare($imageQuery);
-        
-        foreach ($images as $index => $image) {
-            $imageStatement->execute([
-                ':post_id' => $post_id,
-                ':filename' => $image,
-                ':idx' => $index,
-            ]);
-        }
 
-        $connection->commit();
-        return true;
-    } catch (Exception $e) {
-        $connection->rollBack();
-        return false;
+    $imageStatement = $connection->prepare($imageQuery);
+
+    foreach ($images as $index => $image) {
+      $imageStatement->execute([
+        ':post_id' => $post_id,
+        ':filename' => $image,
+        ':idx' => $index,
+      ]);
     }
+
+    $connection->commit();
+    return true;
+  } catch (Exception $e) {
+    $connection->rollBack();
+    return false;
+  }
 }
 
 ?>
-
