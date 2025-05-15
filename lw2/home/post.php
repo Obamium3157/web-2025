@@ -2,11 +2,11 @@
 function renderPost(array $post, array $user, array $images) {
     ?>
         <div class="post">
-            <div class="post_header">
-                <div class="user_header">
-                    <img src=<?php echo '"../data/users_data/' . $user['user_id'] . '/' . $user['profile_picture'] . '"' ?> alt="Аватар пользователя" class="profile_image">
-                    <span class="account_name">
-                        <a class="account_name" href=<?php echo '"../profile?user_id=' .  $user['user_id'] . '"'?>>
+            <div class="post-header">
+                <div class="user-header">
+                    <img class="user-header__profile-image" src="../data/users_data/<?php echo $user['user_id'] ?>/<?php echo $user['profile_picture']?>" alt="Аватар пользователя">
+                    <span class="user-header__account-name">
+                        <a class="user-header__account-name" href=<?php echo '"../profile?user_id=' .  $user['user_id'] . '"'?>>
                             <?php echo $user['first_name'] . ' ' . $user['last_name'] ?>
                         </a>
                     </span>
@@ -14,13 +14,13 @@ function renderPost(array $post, array $user, array $images) {
                 <?php
                     if (($post['post_id'] == 1)):
                 ?>
-                    <img src="../global_assets/Edit_gray.svg" alt="Отредактировать пост" class="edit">
+                    <img class="post-header__edit" src="../global_assets/Edit_gray.svg" alt="Отредактировать пост">
                 <?php
                     endif
                 ?>
             </div>
-            <div class="post_content">
-                <div class="post_img_container">
+            <div class="post-content">
+                <div class="post-img-container">
                     <!-- <div class="indicator">
                         <span class="indicator_text">1/3</span>
                     </div> -->
@@ -34,7 +34,7 @@ function renderPost(array $post, array $user, array $images) {
                     <?php
                         foreach($images as $image) {
                     ?>
-                            <img src="../data/users_data/<?php echo $user['user_id']?>/posts/<?php echo $image['filename'] ?>" alt="Картинка в посте" class="post_content_img">
+                            <img class="post-img-container__post-content-img" src="../data/users_data/<?php echo $user['user_id']?>/posts/<?php echo $image['filename'] ?>" alt="Картинка в посте">
                     <?php
                         }
                     ?>
@@ -42,14 +42,14 @@ function renderPost(array $post, array $user, array $images) {
                 </div>
                 
                 <div class="reaction">
-                    <img class="like_symbol" src="../global_assets/like.svg" alt="❤">
-                    <span class="likes_counter"><?php echo $post['likes_counter'] ?></span>
+                    <img class="reaction__like-symbol" src="../global_assets/like.svg" alt="❤">
+                    <span class="reaction__likes-counter"><?php echo $post['likes_counter'] ?></span>
                 </div>
-                <p class="post_content_text">
+                <p class="post-content__post-text">
                     <?php echo $post['text']; ?>
                 </p>
 
-                <p class="date"> <?php echo date('h:m:s d.m.y', strtotime($post['time']))?> </p>
+                <p class="post-content__date"> <?php echo date('h:m:s d.m.y', strtotime($post['time']))?> </p>
             </div>
         </div>
     <?php

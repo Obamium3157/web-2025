@@ -19,7 +19,7 @@ body {
     padding: 0px 16px 0px 16px; 
 }
 
-.navigation {
+.sidebar__navigation {
     display: block;
     width: 40px;
     height: 40px; 
@@ -35,7 +35,7 @@ body {
     align-items: center;
 }
 
-.top_panel {
+.top-panel {
     width: 100%;
     height: 73px;
 }
@@ -47,7 +47,7 @@ body {
     margin-bottom: 20px;
 }
 
-.post_header {
+.post-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -55,13 +55,13 @@ body {
     margin-bottom: 16px;
 }
 
-.user_header {
+.user-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.profile_image {
+.user-header__profile-image {
     width: 32px;
     height: 32px;
     border-radius: 6px;
@@ -69,9 +69,7 @@ body {
     margin-right: 10px;
 }
 
-
-
-.account_name {
+.user-header__account-name {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,20 +82,20 @@ body {
     padding-bottom: 7px; */
 }
 
-.edit {
+.post-header__edit {
     width: 24px;
     height: 24px;
 }
 
 
-.post_content {
+.post-content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 
-.post_img_container {
+.post-img-container {
     margin-bottom: 16px;
 }
 
@@ -133,7 +131,7 @@ body {
     color: #FFFFFF99;
 } */
 
-.post_content_img {
+.post-img-container__post-content-img {
     width: 474px;
     height: auto;
     object-fit: contain;
@@ -151,7 +149,27 @@ body {
     background-color: #2222220D;
 }
 
-.post_content_text {
+.reaction__like-symbol {
+    display: flex;
+    align-items: center;
+    width: 16px;
+    height: 18px;
+
+    /* margin: 6px 3px 6px 12px; */
+    padding: 6px 3px 6px 12px;
+}
+
+.reaction__likes-counter {
+    display: flex;
+    align-items: center;
+    font: 400 15px/18px "Golos UI";
+    letter-spacing: -0.15px;
+    color:#222222;
+
+    margin-right: 10px;
+}
+
+.post-content__post-text {
     word-wrap: break-word;
     font: 400 15px/18px "Golos UI";
     width: 100%;
@@ -162,31 +180,11 @@ body {
     margin-bottom: 25px;
 }
 
-.date {
+.post-content__date {
     font: 400 14px/18px "Golos UI";
     letter-spacing: -0.15px;
 
     margin-top: 0px;
 
     color: #22222280;
-}
-
-.like_symbol {
-    display: flex;
-    align-items: center;
-    width: 16px;
-    height: 18px;
-
-    /* margin: 6px 3px 6px 12px; */
-    padding: 6px 3px 6px 12px;
-}
-
-.likes_counter {
-    display: flex;
-    align-items: center;
-    font: 400 15px/18px "Golos UI";
-    letter-spacing: -0.15px;
-    color:#222222;
-
-    margin-right: 10px;
 }

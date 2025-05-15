@@ -21,19 +21,19 @@
             <div class="menu">
                 <div class="sidebar">
                     <a href="../home/">
-                        <img class="navigation home_img" src="../global_assets/Home_dot_black.svg" alt="Домашняя страница">
+                        <img class="sidebar__navigation" src="../global_assets/Home_dot_black.svg" alt="Домашняя страница">
                     </a>
                     <?php
                     if (isset($users[0])):
                     ?>
                         <a href="../profile?user_id=<?php echo $users[0]["user_id"]?>">
-                            <img class="navigation profile_img" src="../global_assets/Icon_black.svg" alt="Профиль">
+                            <img class="sidebar__navigation" src="../global_assets/Icon_black.svg" alt="Профиль">
                         </a>
                     <?php
                     endif;
                     ?>
                     <a href="../create_post/">
-                        <img class="navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
+                        <img class="sidebar__navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
                     </a>
                 </div>
             </div>
