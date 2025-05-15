@@ -19,7 +19,7 @@ body {
     padding: 0px 16px 0px 16px; 
 }
 
-.navigation {
+.sidebar__navigation {
     display: block;
     width: 40px;
     height: 40px;
@@ -35,11 +35,11 @@ body {
     align-items: center;
 }
 
-.top_panel {
+.top-panel {
     height: 73px;
 }
 
-.profile_image {
+.content__profile-image {
     display: flex;
     width: 123px;
     height: 123px;
@@ -52,7 +52,7 @@ body {
     background-color: #FFFFFF;
 }
 
-.profile_name {
+.content__profile-name {
     display: flex;
     width: 361px;
     height: 32px;
@@ -69,7 +69,7 @@ body {
     margin-bottom: 10px;
 }
 
-.description {
+.content__description {
     display: flex;
     width: 361px;
     height: 36px;
@@ -86,7 +86,7 @@ body {
     margin-bottom: 12px;
 }
 
-.posts_counter {
+.posts-counter {
     display: flex;
     justify-content: center;
 
@@ -100,14 +100,14 @@ body {
     background-color: #F2F3F5;
 }
 
-.image {
+.posts-counter__image {
     width: 16px;
     height: 16px;
     vertical-align: middle;
     margin: 7px 6px 7px 10px;
 }
 
-.counter_text {
+.posts-counter__counter-text {
     height: 18px;
 
     font: 400 15px/18px "Golos UI";
@@ -126,7 +126,7 @@ body {
     gap: 2.48px;
 }
 
-.post_image {
+.posts__post-image {
     width: 322.35px;
     height: 322.35px;
     border-radius: 2px;
