@@ -22,5 +22,5 @@ switch($act) {
         echo getResponse(STATUS_ERROR, MESSAGE_INVALID_ACT);
         exit;
 }
-// header('Location: ../home/', true);
+header('Location: ../home/', true);
 ?>

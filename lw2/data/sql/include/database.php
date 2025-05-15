@@ -83,22 +83,6 @@ function getImagesFromDB(PDO $connection, int $limit = 100) : array {
   return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// function savePostToDB(PDO $connection, int $user_id, string $image, string $text): bool {
-//       $query = <<<SQL
-//           INSERT INTO
-//             post (user_id, text)
-//           VALUES
-//             (:user_id, :text)
-//       SQL;
-      
-//       $statement = $connection->prepare($query);
-//       return $statement->execute([
-//           ':user_id' => $user_id,
-//           ':image' => $image,
-//           ':text' => $text,
-//       ]);
-// }
-
 function savePostToDB(PDO $connection, int $user_id, array $images, string $text): bool {
     $connection->beginTransaction();
     
@@ -134,7 +118,7 @@ function savePostToDB(PDO $connection, int $user_id, array $images, string $text
                 ':idx' => $index,
             ]);
         }
-        
+
         $connection->commit();
         return true;
     } catch (Exception $e) {

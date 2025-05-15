@@ -20,7 +20,9 @@
                     <a href="../profile?user_id=1">
                         <img class="sidebar__navigation" src="../global_assets/Icon_dot_black.svg" alt="Профиль">
                     </a>
-                    <img class="sidebar__navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
+                    <a href="../create_post/">
+                        <img class="sidebar__navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
+                    </a>
                 </div>
             </div>
 

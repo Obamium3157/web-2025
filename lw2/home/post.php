@@ -41,10 +41,11 @@ function renderPost(array $post, array $user, array $images) {
                     
                 </div>
                 
-                <div class="reaction">
+                <button class="reaction">
                     <img class="reaction__like-symbol" src="../global_assets/like.svg" alt="❤">
                     <span class="reaction__likes-counter"><?php echo $post['likes_counter'] ?></span>
-                </div>
+                </button>
+                
                 <p class="post-content__post-text">
                     <?php echo $post['text']; ?>
                 </p>
