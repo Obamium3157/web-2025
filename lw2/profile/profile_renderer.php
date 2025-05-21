@@ -11,5 +11,3 @@ $user_posts = array_filter($posts, function($post) use ($user) {
 });
 
 renderProfile($user, $user_posts, $images);
-
-?>

@@ -24,7 +24,7 @@ function getPostsFromDB(PDO $connection, int $limit = 100): array
   $statement = $connection->query($query);
 
   return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
+} 
 
 function getPostFromDB(PDO $connection, int $post_id): ?array
 {

@@ -21,14 +21,14 @@ const ACT_UPLOADER = 'uploader';
 
 function uploadData(): string
 {
-    // if (empty($_POST['user_id'])) {
-    //     return getResponse(STATUS_ERROR, 'invalid user id');
-    // }
+    if (empty($_POST['user_id'])) {
+        return getResponse(STATUS_ERROR, 'invalid user id');
+    }
 
-    // $user_id = (int) trim($_POST['user_id']);
-    // if (!validateId($user_id)) {
-    //     return getResponse(STATUS_ERROR, 'cannot validate user id');
-    // }
+    $user_id = (int) trim($_POST['user_id']);
+    if (!validateId($user_id)) {
+        return getResponse(STATUS_ERROR, 'cannot validate user id');
+    }
     $user_id = 4;
 
     $connection = connectToDB();
@@ -39,7 +39,10 @@ function uploadData(): string
     } else {
         $temp = 'images';
     }
+    $temp = 'image';
     $image = $_FILES && ($_FILES[$temp]['error'] === UPLOAD_ERR_OK || $_FILES[$temp]['error'] == null) ? $_FILES[$temp] : null;
+
+    var_dump($_FILES);
 
     if (!$image) {
         return getResponse(STATUS_ERROR, 'invalid image file');
@@ -60,7 +63,7 @@ function uploadData(): string
     if (empty($_POST['text'])) {
         return getResponse(STATUS_ERROR, 'invalid text');
     }
-
+ 
     $text = trim($_POST['text']);
 
     if (!validateText($text)) {

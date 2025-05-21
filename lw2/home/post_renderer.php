@@ -15,5 +15,3 @@ foreach ($posts as $post) {
         renderPost($post, $user, $current_images);
     }
 }
-
-?>

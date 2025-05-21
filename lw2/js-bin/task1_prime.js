@@ -1,58 +1,50 @@
+const NOT_PRIME = 0;
+const PRIME = 1;
+const NOT_A_NUMBER = -1;
+
 function isPrimeNumber(x) {
-    if (typeof(x) == 'number') {
-        for (let i = 2; i <= Math.floor(Math.sqrt(x)); i++) {
-            if  (x % i == 0) return false;
+    if (typeof(x) != 'object') {
+        x = [x];
+    }
+
+    let res = [];
+    for (let i = 0; i < x.length; i++) {
+        let retObj = {
+            num: x[i],
         }
-
-        return true;
+        retObj['isPrime'] = (typeof (x[i]) == 'number') ? isPrime(x[i]) : NOT_A_NUMBER;
+        res.push(retObj);
     }
-    else if (x instanceof Array) {
-        let res = [];
-        x.forEach(el => {
-            let flag = false;
-            for (let i = 2; i <= Math.floor(Math.sqrt(el)); i++) {
-                flag = el % i == 0;
-                if (flag) {
-                    res.push(false);
-                    break;
-                }
-            }
-            if (!flag) {
-                res.push(true);
-            }
-        });
 
-        return res;
+    return res;
+}
+
+function isPrime(x) {
+    for (let i = 2; i <= Math.floor(Math.sqrt(x)); i++) {
+        if (x % i == 0) return NOT_PRIME;
     }
-    else {
-        return false;
+
+    return PRIME;
+}
+
+function parseResult(resObj) {
+    for (const res of resObj) {
+        console.log(generateResponse(res));
     }
 }
 
-function parseResult(x, res) {
-    if (typeof(x) == 'number') {
-        let response = x + ' ' + (res ? '-' : 'не') + ' простое число';
-        console.log(response);
-    } else if (typeof(x) == 'object' && typeof(res) == 'object') {
-        for (i = 0; i < x.length; i++) {
-            let response;
-            if (typeof(x[i]) == 'number') {
-                response = x[i] + ' ' + (res[i] ? '-' : 'не') + ' простое число';
-            } else {
-                response = x[i] + ' не является ни числом, ни массивом';
-            }
-            console.log(response);
-        }
+function generateResponse(resObj) {
+    const x = resObj['num'];
+    const res = resObj['isPrime'];
+
+    if (res == NOT_A_NUMBER) {
+        return x + ' не является числом';
     } else {
-        console.log(x, ' не является ни числом, ни массивом');
+        return x + ' ' + (res ? '-' : 'не') + ' простое число';
     }
 }
 
-
-parseResult({}, isPrimeNumber({}));
-parseResult(4, isPrimeNumber(4));
-console.log('-------------');
-parseResult([2, 3, 4, 5], isPrimeNumber([2, 3, 4, 5]));
-console.log('-------------');
-parseResult('hey', isPrimeNumber('hey'));
-parseResult([5, 'hey', 84], isPrimeNumber([5, 'hey', 84]));
+parseResult(isPrimeNumber(15));
+parseResult(isPrimeNumber([3, 4, 5]));
+parseResult(isPrimeNumber('num'));
+parseResult(isPrimeNumber({}));
