@@ -24,18 +24,19 @@ function renderPost(array $post, array $user, array $images)
         </div>
         <div class="post-content">
             <div class="post-img-container">
-                <div class="counter">
-                    <span class="counter__text">1/3</span>
+                <div class="button-organizer">
+                    <div class="counter">
+                        <span class="counter__text">1/3</span>
+                    </div>
+                    <div class="slider">
+                        <button class="slider__button-prev slider__button">
+                            <img class="slider__img" src="../global_assets/Arrow-left.svg" alt="Свайп влево">
+                        </button>
+                        <button class="slider__button-next slider__button">
+                            <img class="slider__img" src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
+                        </button>
+                    </div>
                 </div>
-                <div class="slider">
-                    <button class="slider__button-prev">
-                        <img class="slider__img" src="../global_assets/Arrow-left.svg" alt="Свайп влево">
-                    </button>
-                    <button class="slider__button-next">
-                        <img class="slider__img" src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
-                    </button>
-                </div>
-
 
                 <?php
                 foreach ($images as $index => $image) {

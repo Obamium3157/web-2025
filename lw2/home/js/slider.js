@@ -7,7 +7,12 @@
             const prevButton = container.querySelector('.slider__button-prev');
             const nextButton = container.querySelector('.slider__button-next');
             const counter = container.querySelector('.counter__text');
+            const buttonOrganizer = container.querySelector('.button-organizer');
             let currentIndex = 0;
+
+            if (images.length === 1) {
+                buttonOrganizer.style.display = 'none';
+            }
 
             function updateImage() {
                 images.forEach((img, index) => {
