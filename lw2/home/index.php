@@ -41,6 +41,8 @@ require 'connection.php';
             ?>
         </section>
     </main>
+
+    <script src="js/slider.js"></script>
 </body>
 
 </html>

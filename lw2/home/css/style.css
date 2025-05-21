@@ -132,10 +132,15 @@ body {
 } */
 
 .post-img-container__post-content-img {
+    display: none;
     width: 474px;
     height: auto;
     object-fit: contain;
     object-position: center;
+}
+
+.post-img-container__post-content-img.active {
+    display: block;
 }
 
 .reaction {

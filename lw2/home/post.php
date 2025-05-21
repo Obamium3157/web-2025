@@ -24,20 +24,23 @@ function renderPost(array $post, array $user, array $images)
         </div>
         <div class="post-content">
             <div class="post-img-container">
-                <!-- <div class="indicator">
-                        <span class="indicator_text">1/3</span>
-                    </div> -->
-                <!-- <button class="slider button_left">
-                        <img src="../global_assets/Arrow-left.svg" alt="Свайп влево">
+                <div class="counter">
+                    <span class="counter__text">1/3</span>
+                </div>
+                <div class="slider">
+                    <button class="slider__button-prev">
+                        <img class="slider__img" src="../global_assets/Arrow-left.svg" alt="Свайп влево">
                     </button>
-                    <button class="slider button_right">
-                        <img src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
-                    </button> -->
+                    <button class="slider__button-next">
+                        <img class="slider__img" src="../global_assets/Arrow-right.svg" alt="Свайп вправо">
+                    </button>
+                </div>
+
 
                 <?php
-                foreach ($images as $image) {
+                foreach ($images as $index => $image) {
                     ?>
-                    <img class="post-img-container__post-content-img"
+                    <img class="post-img-container__post-content-img <?php echo $index === 0 ? 'active' : ''; ?>"
                         src="../data/users_data/<?php echo $user['user_id'] ?>/posts/<?php echo $image['filename'] ?>"
                         alt="Картинка в посте">
                     <?php
