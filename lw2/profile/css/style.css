@@ -129,6 +129,8 @@ body {
 .posts__post-image {
     width: 322.35px;
     height: 322.35px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 2px;
     background-color: #B4B4B4;
 }
