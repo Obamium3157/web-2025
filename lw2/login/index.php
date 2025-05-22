@@ -11,25 +11,38 @@
 <body>
     <main class="app">
         <div class="header">
-            <h1 class="login_text">Войти</h1>
-            <img src="static/login_image.png" alt="Заглавное изображение" class="title_image">
+            <div class="text-container">
+                <h1 class="text-container__login-text">Войти</h1>
+            </div>
+            <img class="header__title-image" src="../global_assets/login_image.png" alt="Заглавное изображение">
         </div>
 
         <div class="login">
-            <div class="field_email">
-                <label class="field_title" for="email">Электропочта</label>
-                <input id="email" class="input" type="email">
-                <span class="description">Введите Электропочту в формате *****@***.**</span>
+            <div class="field-email input-field">
+                <label class="field-email__title" for="email">Электропочта</label>
+                <div class="email-container">
+                    <input id="email" class="field-email__input" type="email">
+                    <span class="description">Введите Электропочту в формате *****@***.**</span>
+                </div>
             </div>
 
-            <div class="field_password">
-                <label class="field_title" for="password">Пароль</label>
-                <input id="password" class="input" type="password">
-                <!-- <img src="../global_assets/Eye-off_black.svg" alt="Спрятать пароль" class="pass_img"> -->
+            <div class="field-password input-field">
+                <label class="field-password__title" for="password">Пароль</label>
+                <div class="password-container">
+                    <div class="password-img-container">
+                        <button class="password-container__toggle-password-view" onclick="alert('helo')">
+                            <img class="password-container__pass-img" src="../global_assets/Eye-off_black.svg"
+                                alt="Спрятать пароль">
+                        </button>
+
+                    </div>
+                    <input id="password" class="password-container__input" type="password">
+                </div>
+
             </div>
 
             <button class="continue">
-                <span class="continue_button_text">Продолжить</span>
+                <span class="continue__button-text">Продолжить</span>
                 <!-- Продолжить -->
             </button>
         </div>

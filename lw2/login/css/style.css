@@ -6,23 +6,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* gap: 107px; */
+    
+    width: 100%;
+    height: 100vh;
+    
+    gap: 107px;
 }
 
 .header {
     display: flex;
-    flex-direction: column;
-    margin-right: 107px;
+    position: relative;
 }
 
-.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 343px;
+.text-container {
+    position: absolute;
+
+    top: -106.63px;
+    left: -90px;
+    width: 100%;
+    height: 100%;
 }
 
-.login_text {
+.text-container__login-text {
     display: flex;
     align-self: flex-start;
     margin-top: 0px;
@@ -33,17 +38,28 @@ body {
     color: #222222;
 }
 
-.title_image {
+.header__title-image {
     width: 452px;
     height: 501px;
 }
 
-.pass_img {
-    width: 24px;
-    height: 24px;
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 343px;
 }
 
-.field_title {
+.input-field {
+    width: 319px;
+    height: 18px;
+}
+
+.field-email {
+    margin-bottom: 16px;
+}
+
+.field-email__title {
     display: block;
     font: 400 15px/18px "Golos UI";
     letter-spacing: -0.15px;
@@ -58,22 +74,76 @@ body {
     color: #808080;
 }
 
-.field_email {
-    margin-bottom: 16px;
-}
 
-.field_password {
+
+.field-password {
+    /* position: relative; */
     margin-bottom: 32px;
 }
 
-.input {
+.field-password__title {
     display: block;
+    font: 400 15px/18px "Golos UI";
+    letter-spacing: -0.15px;
 
     margin-bottom: 5px;
+    color: #222222;
+}
+
+.password-container {
+    position: relative;
+    /* width: 100%;
+    height: 100%;
+
+    right: 12px; */
+}
+
+.password-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    /* position: absolute;
+    width: 100%;
+    height: 100%; */
+}
+
+.password-container__toggle-password-view {
+    position: absolute;  /* Теперь кнопка позиционируется относительно .password-container */
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    /* border: none;
+    margin-right: 12px;
+    padding: 0px;
+    background-color: #F2F3F5;
+    cursor: pointer;
+    pointer-events: auto; */
+}
+
+.password-container__pass-img {
+    width: 24px;
+    height: 24px;
+}
+
+.password-container__input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.password-container__input, .field-email__input {
+    display: block;
+
+    width: 100%;
+    box-sizing: border-box;
+
     padding: 13px 12px;
 
-    width: 319px;
-    height: 18px;
     border-radius: 10px;
 
     font: 400 15px/18px "Golos UI";
@@ -103,6 +173,13 @@ body {
     cursor: pointer;
 }
 
+.continue__button-text {
+    font: 500 16px/100% "Golos UI";
+    letter-spacing: 0%;
+
+    color: #FFFFFF;
+}
+
 .continue:focus {
     border: 1px solid #3F8AE0;
 }
@@ -114,11 +191,4 @@ body {
 
 .input-error {
     border: 1px solid #E64646;
-}
-
-.continue .continue_button_text {
-    font: 500 16px/100% "Golos UI";
-    letter-spacing: 0%;
-
-    color: #FFFFFF;
 }

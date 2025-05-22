@@ -48,3 +48,4 @@ parseResult(isPrimeNumber(15));
 parseResult(isPrimeNumber([3, 4, 5]));
 parseResult(isPrimeNumber('num'));
 parseResult(isPrimeNumber({}));
+parseResult(isPrimeNumber(-1));
