@@ -1,6 +1,4 @@
-<?php
-require 'connection.php';
-?>
+<?php require './connection.php' ?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -9,7 +7,8 @@ require 'connection.php';
     <meta charset="UTF-8">
     <title>Домашняя страница</title>
     <link rel="stylesheet" href="../static/fonts/font.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modal.css">
 </head>
 
 <body>
@@ -36,13 +35,32 @@ require 'connection.php';
 
         <section class="content">
             <!-- <div class="top_panel"> </div> -->
-            <?php
-            include 'post_renderer.php';
-            ?>
+            <?php include './post_renderer.php' ?>
         </section>
     </main>
 
-    <script src="js/slider.js"></script>
+    <div class="modal hidden">
+        <span class="modal__close">&times;</span>
+
+        <div class="modal-image-wrapper">
+            <button class="modal-slider__button modal-slider__button-prev">
+                <img src="../global_assets/Arrow-left.svg" alt="Назад">
+            </button>
+
+            <img class="modal-image-wrapper__content" src="" alt="Просмотр изображения">
+
+            <button class="modal-slider__button modal-slider__button-next">
+                <img src="../global_assets/Arrow-right.svg" alt="Вперёд">
+            </button>
+
+            <div class="modal-counter">
+                <span class="modal-counter__text"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/slider.js"></script>
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>

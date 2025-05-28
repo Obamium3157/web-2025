@@ -161,10 +161,13 @@ body {
     background-color: #FFFFFF99;
 }
 
+.button-organizer {
+    pointer-events: none;
+}
 
-.counter,
 .slider,
-.slider__button {
+.slider__button,
+.counter {
     pointer-events: auto;
 }
 

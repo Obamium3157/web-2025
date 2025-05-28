@@ -20,6 +20,8 @@ function isPrimeNumber(x) {
 }
 
 function isPrime(x) {
+    if (x < 0 || Math.ceil(x) != Math.floor(x)) return NOT_PRIME;
+
     for (let i = 2; i <= Math.floor(Math.sqrt(x)); i++) {
         if (x % i == 0) return NOT_PRIME;
     }
@@ -44,8 +46,9 @@ function generateResponse(resObj) {
     }
 }
 
+parseResult(isPrimeNumber(12.3));
+parseResult(isPrimeNumber(-1));
 parseResult(isPrimeNumber(15));
 parseResult(isPrimeNumber([3, 4, 5]));
 parseResult(isPrimeNumber('num'));
 parseResult(isPrimeNumber({}));
-parseResult(isPrimeNumber(-1));

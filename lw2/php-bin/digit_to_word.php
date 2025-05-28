@@ -1,38 +1,25 @@
 <?php
-    $digit = (isset($_POST["digit"])) ? $_POST["digit"] : "0";
-    switch($digit) {
-        case "0":
-            echo "Ноль";
-            break;
-        case "1":
-            echo "Один";
-            break;
-        case "2":
-            echo "Два";
-            break;
-        case "3":
-            echo "Три";
-            break;
-        case "4":
-            echo "Четыре";
-            break;
-        case "5":
-            echo "Пять";
-            break;
-        case "6":
-            echo "Шесть";
-            break;
-        case "7":
-            echo "Семь";
-            break;
-        case "8":
-            echo "Восемь";
-            break;
-        case "9":
-            echo "Девять";
-            break;
-        default:
-            echo "Не цифра";
-            break;
-    }
-?>
+function digitToWord($digit) {
+    $words = [
+        "0" => "Ноль",
+        "1" => "Один",
+        "2" => "Два",
+        "3" => "Три",
+        "4" => "Четыре",
+        "5" => "Пять",
+        "6" => "Шесть",
+        "7" => "Семь",
+        "8" => "Восемь",
+        "9" => "Девять"
+    ];
+
+    return isset($words[$digit]) ? $words[$digit] : "Не цифра";
+}
+
+$digit = isset($_POST["digit"]) ? trim($_POST["digit"]) : "";
+
+if (preg_match('/^[0-9]$/', $digit)) {
+    echo digitToWord($digit);
+} else {
+    echo "Ошибка: введите одну цифру от 0 до 9";
+}
