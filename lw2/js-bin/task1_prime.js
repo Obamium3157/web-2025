@@ -48,6 +48,7 @@ function generateResponse(resObj) {
 
 parseResult(isPrimeNumber(12.3));
 parseResult(isPrimeNumber(-1));
+parseResult(isPrimeNumber(true));
 parseResult(isPrimeNumber(15));
 parseResult(isPrimeNumber([3, 4, 5]));
 parseResult(isPrimeNumber('num'));

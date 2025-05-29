@@ -23,4 +23,4 @@ switch ($act) {
         exit;
 }
 
-header('Location: ../home/', true);
+// header('Location: ../home/', true);
