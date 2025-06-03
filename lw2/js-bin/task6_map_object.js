@@ -1,9 +1,7 @@
 function mapObject(obj, callback) {
-    const result = {};
-    Object.keys(obj).forEach(key => {
-        result[key] = callback(obj[key]);
-    });
-    return result;
+    return Object.keys(obj).map((key) => {
+        return callback(obj[key]);
+    })
 }
 
 console.log(mapObject({ a: 1, b: 2, c: 3 }, x => x * 3));

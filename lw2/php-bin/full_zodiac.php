@@ -41,45 +41,61 @@ function isValidDate($day, $month): bool
     return true;
 }
 
-function ParseDate(string $dateStr): ?array
+function ParseDate(string $dateStr, bool $isUS = false): ?array
 {
     $formats = [
-        '/^(\d{2})\.(\d{2})\.(\d{4})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
-        '/^(\d{2})-(\d{2})-(\d{4})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
-        '/^(\d{2})\/(\d{2})\/(\d{4})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
-        '/^(\d{4})\.(\d{2})\.(\d{2})$/' => ['day' => 3, 'month' => 2, 'year' => 1],
-        '/^(\d{4})-(\d{2})-(\d{2})$/' => ['day' => 3, 'month' => 2, 'year' => 1],
-        '/^(\d{4})\/(\d{2})\/(\d{2})$/' => ['day' => 3, 'month' => 2, 'year' => 1],
-        '/^(\d{2})\.(\d{2})\.(\d{2})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
-        '/^(\d{2})-(\d{2})-(\d{2})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
-        '/^(\d{2})\/(\d{2})\/(\d{2})$/' => ['day' => 1, 'month' => 2, 'year' => 3],
-        '/^(\d{2})(\d{2})(\d{4})$/' => ['day' => 1, 'month' => 2, 'year' => 3]
+        ['pattern' => '/^(\d{4})\.(\d{2})\.(\d{2})$/', 'day' => 3, 'month' => 2],
+        ['pattern' => '/^(\d{4})-(\d{2})-(\d{2})$/',   'day' => 3, 'month' => 2],
+        ['pattern' => '/^(\d{4})\/(\d{2})\/(\d{2})$/', 'day' => 3, 'month' => 2],
+        ['pattern' => '/^(\d{2})(\d{2})(\d{4})$/',     'day' => 1, 'month' => 2],
     ];
 
-    foreach ($formats as $pattern => $groups) {
-        if (preg_match($pattern, $dateStr, $matches)) {
-            $day = (int) $matches[$groups['day']];
-            $month = (int) $matches[$groups['month']];
-            $year = (int) $matches[$groups['year']];
 
-            if ($year < 100) {
-                $year += 2000;
-            }
+    if ($isUS) {
+        $formats[] = ['pattern' => '/^(\d{2})\/(\d{2})\/(\d{4})$/', 'day' => 2, 'month' => 1];
+        $formats[] = ['pattern' => '/^(\d{2})-(\d{2})-(\d{4})$/',   'day' => 2, 'month' => 1];
+        $formats[] = ['pattern' => '/^(\d{2})\.(\d{2})\.(\d{4})$/', 'day' => 2, 'month' => 1];
+        $formats[] = ['pattern' => '/^(\d{2})\/(\d{2})\/(\d{2})$/', 'day' => 2, 'month' => 1];
+        $formats[] = ['pattern' => '/^(\d{2})-(\d{2})-(\d{2})$/',   'day' => 2, 'month' => 1];
+        $formats[] = ['pattern' => '/^(\d{2})\.(\d{2})\.(\d{2})$/', 'day' => 2, 'month' => 1];
+    } else {
+        $formats[] = ['pattern' => '/^(\d{2})\/(\d{2})\/(\d{4})$/', 'day' => 1, 'month' => 2];
+        $formats[] = ['pattern' => '/^(\d{2})-(\d{2})-(\d{4})$/',   'day' => 1, 'month' => 2];
+        $formats[] = ['pattern' => '/^(\d{2})\.(\d{2})\.(\d{4})$/', 'day' => 1, 'month' => 2];
+        $formats[] = ['pattern' => '/^(\d{2})\/(\d{2})\/(\d{2})$/', 'day' => 1, 'month' => 2];
+        $formats[] = ['pattern' => '/^(\d{2})-(\d{2})-(\d{2})$/',   'day' => 1, 'month' => 2];
+        $formats[] = ['pattern' => '/^(\d{2})\.(\d{2})\.(\d{2})$/', 'day' => 1, 'month' => 2];
+    }
 
-            if (isValidDate($day, $month)) {
-                return ['day' => $day, 'month' => $month, 'year' => $year];
-            } else {
-                return null;
-            }
+    foreach ($formats as $format) {
+    if (preg_match($format['pattern'], $dateStr, $matches)) {
+        $day = (int) $matches[$format['day']];
+        $month = (int) $matches[$format['month']];
+        $year = (int) ($matches[3] ?? 2000);
+
+        if ($year < 100) {
+            $year += 2000;
+        }
+
+        if (isValidDate($day, $month)) {
+            return ['day' => $day, 'month' => $month, 'year' => $year];
+        } else {
+            return null;
         }
     }
+}
 
     return null;
 }
 
+
 if (isset($_POST["date"])) {
-    $input = ParseDate(trim($_POST["date"]));
-    if ($input !== null) {
+    $dateStr = trim($_POST["date"]);
+    $isUSFormat = isset($_POST["us_format"]) && $_POST["us_format"] === "1";
+
+    $input = ParseDate($dateStr, $isUSFormat);
+
+    if ($input) {
         $date = $input['month'] * 100 + $input['day'];
         echo GetZodiacSign($date);
     } else {

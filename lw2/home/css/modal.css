@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 3;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -29,15 +29,13 @@
     min-width: 636px;
 
     object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
 }
 
 .modal-slider__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 2;
     background-color: rgba(255, 255, 255, 0.6);
     border: none;
     border-radius: 50%;
@@ -57,18 +55,6 @@
     right: 16px;
 }
 
-/* .modal-image-wrapper__counter-text {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(34, 34, 34, 0.5);
-    border-radius: 12px;
-    padding: 4px 10px;
-    color: white;
-    font: 400 14px/18px "Golos UI";
-} */
-
 .modal-image-wrapper__counter-text {
     position: absolute;
     top: 100%;
@@ -81,25 +67,6 @@
     padding: 0;
 }
 
-/* .modal-image-wrapper__close {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    z-index: 1001;
-} */
-/* .modal-image-wrapper__close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(16px, -16px);
-    font-size: 32px;
-    color: #FFFFFF;
-    cursor: pointer;
-    z-index: 1001;
-} */
 .modal-image-wrapper__close {
     position: absolute;
     top: calc(-24px - 16px);
