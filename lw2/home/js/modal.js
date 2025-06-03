@@ -2,12 +2,11 @@
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.querySelector('.modal');
         const modalImg = document.querySelector('.modal-image-wrapper__content');
-        const closeBtn = document.querySelector('.modal__close');
+        const closeBtn = document.querySelector('.modal-image-wrapper__close');
 
         const prevButton = document.querySelector('.modal-slider__button-prev');
         const nextButton = document.querySelector('.modal-slider__button-next');
-
-        // const button_organizer = document.querySelector('.button-organizer');
+        const modalCounter = document.querySelector('.modal-image-wrapper__counter-text');
 
         let currentIndex = 0;
         let imageList = [];
@@ -19,26 +18,38 @@
 
                 imageList = postImages.map(img => img.src);
                 currentIndex = postImages.indexOf(clickedImage);
+                updateModalContent();
 
                 modal.classList.remove('hidden');
                 modalImg.src = img.src;
+
+                if (imageList.length <= 1) {
+                    prevButton.classList.add('hidden');
+                    nextButton.classList.add('hidden');
+                    modalCounter.classList.add('hidden');
+                } else {
+                    prevButton.classList.remove('hidden');
+                    nextButton.classList.remove('hidden');
+                    modalCounter.classList.remove('hidden');
+                }
             });
         });
 
+
+
         function updateModalContent() {
-            modalImage.src = imageList[currentIndex];
+            modalImg.src = imageList[currentIndex];
             modalCounter.textContent = `${currentIndex + 1} из ${imageList.length}`;
-            updateButtons();
         }
 
-
-
         prevButton.addEventListener('click', () => {
-            alert('helo prev!!!!!');
+            currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
+            updateModalContent();
         });
 
         nextButton.addEventListener('click', () => {
-            alert('helo next!!!!!');
+            currentIndex = (currentIndex + 1) % imageList.length;
+            updateModalContent();
         });
 
         closeBtn.addEventListener('click', () => {
@@ -52,5 +63,16 @@
                 modalImg.src = '';
             }
         });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modalImg.src = '';
+        }
     });
 }
