@@ -26,7 +26,10 @@ const ACT_UPLOADER = 'uploader';
 function uploadData(): string
 {
     try {
-        $user_id = 4;
+        $user_id = validateAndGetUserId();
+        if (!$user_id) {
+            return getResponse(STATUS_ERROR, MESSAGE_INVALID_FIELD);
+        }
 
         $connection = connectToDB();
 
@@ -41,7 +44,7 @@ function uploadData(): string
         }
 
         $text = validateAndGetText();
-        if ($text == null) {
+        if (!$text) {
             return getResponse(STATUS_ERROR, MESSAGE_INVALID_TEXT_CONTENT);
         }
 

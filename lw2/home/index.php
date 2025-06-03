@@ -39,10 +39,9 @@
         </section>
     </main>
 
-    <div class="modal hidden">
-        <span class="modal__close">&times;</span>
-
+    <!-- <div class="modal hidden">
         <div class="modal-image-wrapper">
+            <span class="modal-image-wrapper__close">&times;</span>
             <button class="modal-slider__button modal-slider__button-prev">
                 <img src="../global_assets/Arrow-left.svg" alt="Назад">
             </button>
@@ -57,8 +56,26 @@
                 <span class="modal-counter__text"></span>
             </div>
         </div>
+    </div> -->
+    <div class="modal hidden">
+        <div class="modal-image-wrapper">
+            <div class="modal-slider-track"></div>
+
+            <button class="modal-slider__button modal-slider__button-prev">
+                <img src="../global_assets/Arrow-left.svg" alt="Назад">
+            </button>
+            <button class="modal-slider__button modal-slider__button-next">
+                <img src="../global_assets/Arrow-right.svg" alt="Вперёд">
+            </button>
+
+            <div class="modal-counter">1/1</div>
+            <span class="modal-image-wrapper__close">&times;</span>
+        </div>
     </div>
 
+
+
+    <script src="./js/sliderCore.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/modal.js"></script>
 </body>

@@ -1,5 +1,5 @@
 <?php
-function validateProfile(array $users): array|bool
+function getValidatedProfile(array $users): array|bool
 {
     if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
         $user_id = $_GET['user_id'];
@@ -41,5 +41,14 @@ function validateStringLength(string $data): bool
 function checkCurrentUserIsViewing(int $post_user_id): bool
 {
     return $post_user_id == 1;
+}
+
+function getValidatedId(string $id): int|null
+{
+    // return ctype_digit($id) && $id >= 0;
+    if (ctype_digit($id) && (int) $id >= 0)
+        return (int) $id;
+    else
+        return null;
 }
 ?>

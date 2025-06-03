@@ -11,10 +11,6 @@ function SumOfDigits(string $input): int
 function GetAllLuckyTickets(string $start, string $end): array
 {
     $result = [];
-
-    // $start = (int) $start;
-    // $end = (int) $end;
-
     for ($i = $start; $i <= $end; $i++) {
         $ticket = str_pad((string) $i, 6, '0', STR_PAD_LEFT);
         $first_half = substr($ticket, 0, 3);

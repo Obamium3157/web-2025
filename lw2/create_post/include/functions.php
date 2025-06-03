@@ -9,7 +9,7 @@ const IMAGE_MAX_SALT = 25;
 
 const TEXT_MAX_LENGHT = 500;
 
-function validateId(string $id): bool
+function getValidatedId(string $id): bool
 {
     return is_numeric($id);
 }
@@ -36,6 +36,14 @@ function generateImageNameFromUserData(string $first_name, string $last_name): s
     $randomPart = substr(sha1(rand(PHP_INT_MIN, PHP_INT_MAX) . time()), 0, IMAGE_MAX_RANDOM);
     
     return strtolower($first_name . '_' . $last_name . '_' . $randomPart);
+}
+
+function validateAndGetUserId(): ?int {
+    if (empty($_POST['user_id'])) {
+        return null;
+    }
+    $user_id = $_POST['user_id'];
+    return (ctype_digit($user_id) && (int) $user_id >= 0) ? $user_id : null;
 }
 
 function handleImageUpload(int $user_id, array $user): array

@@ -1,6 +1,6 @@
 <?php
 
-$user = validateProfile($users);
+$user = getValidatedProfile($users);
 if (!$user) {
     header('Location: ../home', true);
     exit;
