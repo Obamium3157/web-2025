@@ -38,31 +38,32 @@ VALUES (
     'Ваня',
     'Денисов',
     'some_random_email@email.moc',
-    '12356789',
+    '0393f61556c19b357ad2b63ef254a233',
     'Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!'
 ),
 (
     'man.png',
     'Денис',
     'Иванов',
-    'some_random_email@email.moc',
-    '123512455',
+    'some_random_email1@email.moc',
+    '8945e4d315c5aef51affb54dd4460811',
     'Привет!! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!'
 ),
+(
     'ava.png',
     'Денислав',
     'Иваненко',
-    'some_random_email@email.moc',
-    '1235',
+    'some_random_email3@email.moc',
+    '6888157be8f085c450c95df4f251dbcf',
     'Привет!!! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!'
 ),
 (
-        'ava.png',
-        'Пётр',
-        'Жданов',
-        'anatolijkovyralo@gmail.com',
-        '12356',
-        'lorem ipsum'
+    'ava.png',
+    'Пётр',
+    'Жданов',
+    'anatolijkovyralo@gmail.com',
+    'db384e81c93b6937da8a438ff5183ead',
+    'lorem ipsum'
 );
 
 INSERT INTO

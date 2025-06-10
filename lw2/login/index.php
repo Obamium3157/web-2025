@@ -1,3 +1,5 @@
+<?php require_once 'login.php' ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -17,11 +19,11 @@
             <img class="header__title-image" src="../global_assets/login_image.png" alt="Заглавное изображение">
         </div>
 
-        <div class="login">
+        <form class="login" method="post" action="../api/login/login.php">
             <div class="field-email input-field">
                 <label class="field-email__title" for="email">Электропочта</label>
                 <div class="email-container">
-                    <input id="email" class="field-email__input" type="email">
+                    <input id="email" name="email" class="field-email__input" type="email">
                     <span class="description">Введите Электропочту в формате *****@***.**</span>
                 </div>
             </div>
@@ -36,16 +38,15 @@
                         </button>
 
                     </div>
-                    <input id="password" class="password-container__input" type="password">
+                    <input id="password" name="password" class="password-container__input" type="password">
                 </div>
-
             </div>
 
-            <button class="continue">
-                <span class="continue__button-text">Продолжить</span>
+            <input type="submit" class="continue" value="Продолжить">
+                <!-- <span class="continue__button-text">Продолжить</span> -->
                 <!-- Продолжить -->
-            </button>
-        </div>
+            <!-- </input> -->
+        </form>
     </main>
 </body>
 

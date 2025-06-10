@@ -178,9 +178,7 @@ body {
     transition: border, background-color 0.3s ease;
 
     cursor: pointer;
-}
 
-.continue__button-text {
     font: 500 16px/100% "Golos UI";
     letter-spacing: 0%;
 

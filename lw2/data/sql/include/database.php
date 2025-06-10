@@ -24,7 +24,7 @@ function getPostsFromDB(PDO $connection, int $limit = 100): array
   $statement = $connection->query($query);
 
   return $statement->fetchAll(PDO::FETCH_ASSOC);
-} 
+}
 
 function getPostFromDB(PDO $connection, int $post_id): ?array
 {
@@ -73,6 +73,22 @@ function getUserFromDB(PDO $connection, int $user_id): ?array
   $row = $statement->fetch(PDO::FETCH_ASSOC);
 
   return $row ?: null;
+}
+
+function getUserByEmail(PDO $connection, string $email): ?array
+{
+  $query = <<<SQL
+          SELECT *
+          FROM
+            user
+          WHERE
+            email = :email
+          LIMIT 1
+    SQL;
+
+  $statement = $connection->prepare($query);
+  $statement->execute(['email' => $email]);
+  return $statement->fetch(PDO::FETCH_ASSOC);
 }
 
 function getImagesFromDB(PDO $connection, int $limit = 100): array
