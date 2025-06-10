@@ -75,7 +75,7 @@ function getUserFromDB(PDO $connection, int $user_id): ?array
   return $row ?: null;
 }
 
-function getUserByEmail(PDO $connection, string $email): ?array
+function getUserByEmail(PDO $connection, string $email): array|bool
 {
   $query = <<<SQL
           SELECT *
@@ -88,6 +88,7 @@ function getUserByEmail(PDO $connection, string $email): ?array
 
   $statement = $connection->prepare($query);
   $statement->execute(['email' => $email]);
+
   return $statement->fetch(PDO::FETCH_ASSOC);
 }
 

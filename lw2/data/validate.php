@@ -17,6 +17,12 @@ function getValidatedProfile(array $users): array|bool
     return false;
 }
 
+function validateEmail(?string $email): ?string {
+    $email_regex = '/[a-zA-Z0-9._-]+@[a-zA-Z-]+\.[a-zA-Z]/';
+
+    return preg_match($email_regex, $email) ? $email : null;
+}
+
 function validatePost(array $post): bool
 {
     // if (!strtotime($post['time'])) return false;

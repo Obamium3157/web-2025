@@ -1,17 +1,25 @@
 <?php
 
-session_start();
-
-$email = isset($_POST['email']) ? $_POST['email'] : null;
-$password = isset($_POST['password']) ? $_POST['password'] : null;
-
 function hashPassword(string $password): string {
     $salt = 'Sugar';
     return md5(md5($password) . $salt);
 }
 
+session_start();
+
+$email = isset($_POST['email']) ? $_POST['email'] : null;
+$password = isset($_POST['password']) ? $_POST['password'] : null;
+
+
 if (!$email || !$password) {
-    header('Location: ../../login/index.php');
+    header('Location: ../../login/index.php?error=1');
+    exit;
+}
+
+require_once '../../data/validate.php';
+
+if (!validateEmail($email)) {
+    header('Location: ../../login/index.php?error=1');
     exit;
 }
 
