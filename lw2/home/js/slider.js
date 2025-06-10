@@ -1,17 +1,3 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const postContainers = document.querySelectorAll('.post-img-container');
-
-//     postContainers.forEach(container => {
-//         window.initSlider({
-//             container,
-//             imagesSelector: '.post-img-container__post-content-img',
-//             prevBtnSelector: '.slider__button-prev',
-//             nextBtnSelector: '.slider__button-next',
-//             counterSelector: '.counter__text'
-//         });
-//     });
-// });
-
 {
     document.addEventListener('DOMContentLoaded', () => {
         const postContainers = document.querySelectorAll('.post-img-container');

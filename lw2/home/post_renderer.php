@@ -21,12 +21,12 @@ if (empty($_GET['user_id'])) {
 } else {
     $user_id = getValidatedId($_GET['user_id']);
     if (!$user_id) {
-        exit;
+        header('Location: ../home', true);
     }
     $user = getUserFromDB($connection, $user_id);
 
     if (!$user) {
-        exit;
+        header('Location: ../home', true);
     }
 
     $user_posts = array_filter($posts, function ($post) use ($user) {

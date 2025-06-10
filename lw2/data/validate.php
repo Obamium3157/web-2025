@@ -6,9 +6,10 @@ function getValidatedProfile(array $users): array|bool
         foreach ($users as $user) {
             if (in_array($user_id, $user)) {
                 foreach ($user as $field) {
-                    if (!validateStringLength(strval($field)))
+                    if (!validateStringLength(strval($field))) {
                         return false;
-                }
+                    }
+                }   
                 return $user;
             }
         }
@@ -38,10 +39,6 @@ function validateStringLength(string $data): bool
     return strlen($data) <= 512;
 }
 
-function checkCurrentUserIsViewing(int $post_user_id): bool
-{
-    return $post_user_id == 1;
-}
 
 function getValidatedId(string $id): int|null
 {
@@ -51,4 +48,3 @@ function getValidatedId(string $id): int|null
     else
         return null;
 }
-?>
