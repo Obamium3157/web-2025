@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../static/fonts/font.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/modal.css">
+
+    <script src="./js/logout_logic.js" defer></script>
 </head>
 
 <body>
@@ -30,6 +32,8 @@
                 <a href="../create_post/">
                     <img class="sidebar__navigation" src="../global_assets/Plus_black.svg" alt="Создать пост">
                 </a>
+
+                <button id="logout-btn">Выйти</button>
             </div>
         </div>
 

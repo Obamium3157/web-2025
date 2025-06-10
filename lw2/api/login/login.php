@@ -18,7 +18,7 @@ if (!$email || !$password) {
 require_once '../../data/sql/include/database.php';
 
 $connection = connectToDB();
-
+// Th1SIs7Tr8l@D1Ff1C8lTP3ssWOrD
 $user = getUserByEmail($connection, $email);
 
 if (!$user || $user['password'] !== hashPassword($password)) {
